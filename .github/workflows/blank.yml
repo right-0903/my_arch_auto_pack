@@ -45,7 +45,8 @@ jobs:
         # make use of cores
         sudo arch-chroot ./root.x86_64/ sh -c 'su - builduser -c "export MAKEFLAGS=-j$(nproc) && printenv MAKEFLAGS"'
         # prepare patches for myself
-        sudo arch-chroot ./root.x86_64/ sh -c "su - builduser -c cd linux-lts && mkdir src && curl https://ftp.nuvole.eu.org/0099-fix-pnp.patch -o src/0099-fix-pnp.patch && ls  && pwd && sed -i 's/\.\.\/\$src/..\/*/g' PKGBUILD && makepkg -s --noconfirm"
+        sudo arch-chroot ./root.x86_64/ sh -c "su - builduser -c sed -i 's/\.\.\/\$src/..\/*/g' linux-lts/PKGBUILD"
+        sudo arch-chroot ./root.x86_64/ sh -c 'su - builduser -c "cd linux-lts && mkdir src && curl https://ftp.nuvole.eu.org/0099-fix-pnp.patch -o src/0099-fix-pnp.patch && makepkg -s --noconfirm" '
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
