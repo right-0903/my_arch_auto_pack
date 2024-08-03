@@ -36,9 +36,9 @@ jobs:
         sudo arch-chroot ./root.x86_64/ pacman -S base-devel git wget --noconfirm
         # makepkg refuse to work when user is root, create a new user instead of hacking makepkg
         sudo arch-chroot ./root.x86_64/ sh -c 'useradd -m -s /bin/bash builduser && cd /home/builduser && su - builduser -c "git clone https://gitlab.archlinux.org/archlinux/packaging/packages/linux-lts.git"'
-        sudo arch-chroot ./root.x86_64/ sh -c 'su - builduser -c "cd linux-lts/keys/pgp && gpg --import 647F28654894E3BD457199BE38DBBDC86092693E.asc && gpg --import ABAF11C65A2970B130ABE3C479BE3E4300411886.asc"'
+        sudo arch-chroot ./root.x86_64/ sh -c 'su - builduser -c "cd linux-lts/keys/pgp && gpg --import ./* "'
         # I don't docs
-        sudo sed -i 's/"$pkgbase-docs"//g' ./root.x86_64/home/builduser/PKGBUILD
+        sudo sed -i 's/"$pkgbase-docs"//g' ./root.x86_64/home/builduser/linux-lts/PKGBUILD
         # avoid the interactive shell for password
         sudo sh -c 'echo "builduser ALL=(ALL) NOPASSWD: /usr/bin/pacman" >> ./root.x86_64/etc/sudoers'
         # make use of cores
