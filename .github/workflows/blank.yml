@@ -23,10 +23,11 @@ jobs:
     - name: curl srcipt and config
       run: |
         wget http://mirror.rackspace.com/archlinux/iso/latest/archlinux-bootstrap-x86_64.tar.zst
-        sudo tar xf ./archlinux-bootstrap-x86_64.tar.zst --numeric-owner
-        sudo sh -c "echo 'Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch' >> ./root.x86_64/etc/pacman.d/mirrorlist"
+        tar xf ./archlinux-bootstrap-x86_64.tar.zst --numeric-owner
+        echo 'Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch' >> ./root.x86_64/etc/pacman.d/mirrorlist
         cat ./root.x86_64/etc/pacman.d/mirrorlist | grep -Ei '^Server'
-        sudo sh -c "echo 'ParallelDownloads = 4' >> ./root.x86_64/etc/pacman.conf"
+        sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 4/' ./root.x86_64/etc/pacman.conf
+        sudo chown root:root -R ./root.x86_64
         sudo mount --bind ./root.x86_64/ ./root.x86_64/
         sudo arch-chroot ./root.x86_64/ sh -c 'pacman-key --init && pacman-key --populate && pacman -Syu --noconfirm'
         sudo arch-chroot ./root.x86_64/ pacman -S base-devel git wget --noconfirm
