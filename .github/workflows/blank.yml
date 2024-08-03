@@ -31,7 +31,7 @@ jobs:
         sudo arch-chroot ./root.x86_64/ sh -c 'pacman-key --init && pacman-key --populate && pacman -Syu --noconfirm'
         sudo arch-chroot ./root.x86_64/ pacman -S base-devel git wget --noconfirm
         sudo arch-chroot ./root.x86_64/ sh -c 'cd /root && git clone https://gitlab.archlinux.org/archlinux/packaging/packages/linux-lts.git'
-        sudo arch-chroot ./root.x86_64/ sh -c 'gpg --recv-keys ABAF11C65A2970B130ABE3C479BE3E4300411886 && gpg --recv-keys 647F28654894E3BD457199BE38DBBDC86092693E'
+        sudo arch-chroot ./root.x86_64/ sh -c 'cd ./root.x86_64/root/linux-lts && gpg --import keys/pgp/647F28654894E3BD457199BE38DBBDC86092693E.asc && gpg --import keys/pgp/ABAF11C65A2970B130ABE3C479BE3E4300411886.asc'
         sudo arch-chroot ./root.x86_64/ sh -c 'cd ./root.x86_64/root/linux-lts && wget https://ftp.nuvole.eu.org/linux-ego/0099-fix-pnp.patch && makepkg -si'
 
     - name: Upload build artifacts
