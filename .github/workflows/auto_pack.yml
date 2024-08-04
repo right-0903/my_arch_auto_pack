@@ -23,6 +23,7 @@ jobs:
         name: packages
         path: |
           ${{ github.workspace }}/builddir/root.x86_64/home/nuvole/prod/*.zst
+        compression-level: 0 # no compression
 
 
     - name: Push changes
