@@ -1,0 +1,32 @@
+name: auto_pack
+
+on:
+  schedule:
+    - cron: '0 1 * * *' # everyday 1:00 am (UTC)
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: run scripts
+      run: |
+        ${{ github.workspace }}/utils/query_update.sh
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: packages
+        path: |
+          ${{ github.workspace }}/builddir/root.x86_64/home/nuvole/prod/*.zst
+
+
+    - name: Push changes
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git push -u origin main
