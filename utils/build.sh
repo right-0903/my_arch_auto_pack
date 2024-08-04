@@ -26,7 +26,7 @@ main() {
 }
 
 prepare() {
-    echo "do the prepare jobs"
+    echo "do the prepare jobs, $(pwd)"
     # add patches for some packages
     if [ -f 'quirks' ]; then
         chmod +x quirks

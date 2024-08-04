@@ -1,3 +1,5 @@
 #! /bin/bash
 
+echo "quirks test"
+
 curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | gpg --import -

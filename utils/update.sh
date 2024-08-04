@@ -27,6 +27,7 @@ main() {
     # deal quirks
     for item in "${update_list[@]}"; do
         if [ -f "$GITHUB_WORKSPACE/repos/$item/quirks" ]; then
+            echo "$item have quirks"
             cp "$GITHUB_WORKSPACE/repos/$item/quirks" "$GITHUB_WORKSPACE/builddir/repos/$item"
         fi
     done

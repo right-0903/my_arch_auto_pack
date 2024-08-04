@@ -63,7 +63,7 @@ check_update() {
         :
     else
         echo "do not provide host site, use the default, aur.archlinux.org"
-        ln -s default_host $host
+        ln -s ../default_host $host
     fi
 
     host=$(cat $host)
