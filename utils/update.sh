@@ -24,6 +24,13 @@ main() {
     cd ..
     cp ../utils/build.sh ./repos
 
+    # deal quirks
+    for item in "${update_list[@]}"; do
+        if [ -f "$GITHUB_WORKSPACE/repos/$item/quirks" ]; then
+            cp "$GITHUB_WORKSPACE/repos/$item/quirks" "$GITHUB_WORKSPACE/builddir/repos/$item"
+        fi
+    done
+
     sudo cp -r repos root.x86_64/home/nuvole/
 
     # avoid permission issues

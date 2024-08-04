@@ -1,7 +1,6 @@
 #! /bin/bash
 
 main() {
-    prepare
 
     # import gpg
     cd /home/nuvole/repos
@@ -16,6 +15,7 @@ main() {
     for package in */ ; do
         cd "$package"
         # TODO: parse the order of dependencies, only install makedepends
+        prepare
         makepkg -s --noconfirm
         mv ./*zst /home/nuvole/prod
         cd ..
@@ -28,6 +28,10 @@ main() {
 prepare() {
     echo "do the prepare jobs"
     # add patches for some packages
+    if [ -f 'quirks' ]; then
+        chmod +x quirks
+        ./quirks
+    fi
 }
 
 main
