@@ -15,6 +15,8 @@ main() {
     # make use of cores
     export MAKEFLAGS=-j$(nproc)
     printenv MAKEFLAGS
+    # building from files in memory
+    export BUILDDIR=/tmp/makepkg makepkg
 
     # build
     mkdir /home/nuvole/prod
