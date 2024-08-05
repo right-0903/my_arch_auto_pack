@@ -17,15 +17,6 @@ jobs:
       run: |
         ${{ github.workspace }}/utils/query_update.sh
 
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: packages
-        path: |
-          ${{ github.workspace }}/builddir/root.x86_64/home/nuvole/prod/*.zst
-        compression-level: 0 # no compression
-
-
     - name: Push changes
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
