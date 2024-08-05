@@ -91,7 +91,6 @@ check_update() {
         1)
             echo "There are updates for $package"
             echo "$package $new_version" >> $update_list
-            # TODO: modify it after build
             echo "$new_version" > "$version"
             ;;
     esac

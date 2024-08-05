@@ -20,6 +20,13 @@ git_push() {
             printf "%s\t%s\t%s\n" 'succeed' "${package_list[$i]}" "${version_list[$i]}" >> 'update_list'
         else
             printf "%s\t%s\t%s\n" 'failed' "${package_list[$i]}" "${version_list[$i]}" >> 'update_list'
+            # discard the update for version number, resotre if tracked else delete
+            # TODO: not test functionality yet
+            if git ls-files --error-unmatch "${package_list[$i]}/version" > /dev/null 2>&1; then
+                git restore "${package_list[$i]}/version"
+            else
+                rm "${package_list[$i]}/version"
+            fi
         fi
     done
 
