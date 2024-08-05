@@ -1,4 +1,10 @@
 #!/bin/bash
+# =============================================================================
+# Filename: change_invalid_name.sh
+# Purpose: This script is used to remove invalid characters in the products' filename
+# Usage: ./change_invalid_name.sh <products_dir>
+# =============================================================================
+
 
 # Specify the directory to process
 TARGET_DIR="$1"
@@ -16,8 +22,8 @@ if [ ! -d "$TARGET_DIR" ]; then
 fi
 
 # Define invalid characters to be removed, in case failed to upload artifacts
-# Invalid characters include:  Double quote ", Colon :, Less than <, Greater than >,
-# Vertical bar |, Asterisk *, Question mark ?, Carriage return \r, Line feed \n
+# > Invalid characters include:  Double quote ", Colon :, Less than <, Greater than >,
+# > Vertical bar |, Asterisk *, Question mark ?, Carriage return \r, Line feed \n
 INVALID_CHARS='["<>|*?:\r\n]'
 
 # Iterate over all files in the specified directory

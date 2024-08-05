@@ -1,4 +1,11 @@
-#! /bin/bash
+#!/bin/bash
+# =============================================================================
+# Filename: post_update.sh
+# Purpose: Do jobs after arch_build.sh, like remove debug packages, commit changes
+#           to version and update_list.
+# Usage: ./post_update.sh
+# =============================================================================
+
 
 git_push() {
     echo "post_update"

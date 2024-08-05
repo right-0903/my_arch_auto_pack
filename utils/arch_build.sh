@@ -1,4 +1,10 @@
-#! /bin/bash
+#!/bin/bash
+# =============================================================================
+# Filename: arch_build.sh
+# Purpose: Used by arch chroot to pack packages in the repos
+# Usage: ./arch_build.sh
+# =============================================================================
+
 
 main() {
 

@@ -1,4 +1,12 @@
-#! /bin/bash
+#!/bin/bash
+# =============================================================================
+# Filename: query_update.sh
+# Purpose: The script is the entrypoint, workflow will execute this first, this
+#           script mainly used to determine the packages need updating, if there
+#           are packages, then it would execute a series of scripts.
+# Usage: ./query_update.sh
+# =============================================================================
+
 
 main() {
 
@@ -26,7 +34,7 @@ main() {
         "$GITHUB_WORKSPACE/utils/make_arch_chroot.sh"
         echo "==============archlinux container initialized==============="
         # packages have benn added into update_list, query update_list and git clone repos
-        "$GITHUB_WORKSPACE/utils/update.sh"
+        "$GITHUB_WORKSPACE/utils/prepare_update.sh"
         "$GITHUB_WORKSPACE/utils/post_update.sh"
     else
         echo "There is nothing to do."

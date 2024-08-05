@@ -1,4 +1,10 @@
-#! /bin/bash
+#!/bin/bash
+# =============================================================================
+# Filename: make_arch_chroot.sh
+# Purpose: To create a chroot environment for arch linux
+# Usage: ./make_arch_chroot.sh
+# =============================================================================
+
 
 # check if the execution user is root
 if [ "$(id -u)" -eq 0 ]; then
