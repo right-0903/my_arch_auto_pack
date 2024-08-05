@@ -19,17 +19,21 @@ main() {
     # build
     mkdir /home/nuvole/prod
     for package in */ ; do
-        cd "$package"
-        # TODO: parse the order of dependencies, only install makedepends
-        prepare
-        makepkg -s --noconfirm
-        post
-        mv ./*zst /home/nuvole/prod
-        cd ..
+        build $package
+        mv "$package"/*zst /home/nuvole/prod
         echo "${package%/} done!"
     done
     # fix permission for upload-artifact
     chmod 777 -R /home/nuvole
+}
+
+build() {
+    cd "$1"
+    prepare
+    # TODO: parse the order of dependencies, only install makedepends
+    makepkg -s --noconfirm
+    post
+    cd ..
 }
 
 prepare() {
