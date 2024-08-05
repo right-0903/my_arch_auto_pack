@@ -1,0 +1,13 @@
+#! /bin/bash
+
+before() {
+    echo "quirks before"
+    # it is not a make dependency
+    sed -i "s/'tuxedo-drivers-dkms'//g" PKGBUILD
+}
+
+after() {
+    echo "quirks after"
+}
+
+"$1"
