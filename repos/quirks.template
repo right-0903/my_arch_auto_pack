@@ -1,0 +1,14 @@
+#! /bin/bash
+
+before() {
+    # do before makepkg
+    echo "quirks before"
+}
+
+after() {
+    # do after makepkg
+    echo "quirks after"
+}
+
+# entrypoint
+"$1"
