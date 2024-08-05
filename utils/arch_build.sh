@@ -23,6 +23,7 @@ main() {
         # TODO: parse the order of dependencies, only install makedepends
         prepare
         makepkg -s --noconfirm
+        post
         mv ./*zst /home/nuvole/prod
         cd ..
         echo "${package%/} done!"
@@ -36,7 +37,13 @@ prepare() {
     # add patches for some packages
     if [ -f 'quirks' ]; then
         chmod +x quirks
-        ./quirks
+        ./quirks before
+    fi
+}
+
+post() {
+    if [ -f 'quirks' ]; then
+        ./quirks after
     fi
 }
 
