@@ -27,7 +27,7 @@ for FILE in "$TARGET_DIR"/*; do
   BASENAME=$(basename "$FILE")
 
   # Remove invalid characters
-  CLEAN_NAME=$(echo "$BASENAME" | tr -d $INVALID_CHARS)
+  CLEAN_NAME=$(echo "$BASENAME" | tr $INVALID_CHARS '.')
 
   # If the cleaned filename differs from the original, rename the file
   if [ "$BASENAME" != "$CLEAN_NAME" ]; then
