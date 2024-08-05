@@ -12,9 +12,9 @@ main() {
             touch "$update_list"
         fi
     else
+        # if update list not exist(initialize or reset)
         touch "$update_list"
     fi
-
 
     for package in */ ; do
         # in the form package1 package2 ... rather than package1/ package2/ ...
@@ -45,9 +45,12 @@ check_update() {
 
     # gitlab
     # url: https://host-domain-name/path-to/repo-name
-    # raw: $url/-/raw/main/path-to/PKGBUILD
+    # raw: $url/-/raw/{master, main}/path-to/PKGBUILD
+    # master example: https://gitlab.manjaro.org/packages/core/linux66
+    # main example: https://gitlab.archlinux.org/archlinux/packaging/packages/linux-lts
+    # TODO: handle main and master
 
-    # gitlab
+    # aur
     # url: https://aur.archlinux.org/repo-name
     # raw: https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=repo-name
 
@@ -58,31 +61,34 @@ check_update() {
     local url=$(cat "$package"/url)
     local pkg
 
-    local host="$package"/host
-    if [ -f "$host" ]; then
+    # may not exist, so use path to check its existence first.
+    local host_path="$package"/host
+    if [ -f "$host_path" ]; then
         :
     else
         echo "do not provide host site, use the default, aur.archlinux.org"
-        ln -s ../default_host $host
+        ln -s ../default_host $host_path
     fi
 
-    host=$(cat $host)
+    local host=$(cat $host_path)
 
     if [[ "$host" == 'github' ]]; then
         pkg=$(echo "$url" | sed 's/github/raw.githubusercontent/')/trunk/PKGBUILD
     elif [[ "$host" == 'gitlab' ]]; then
+        # FIXME: it is not always main.
         pkg="${url}/-/raw/main/PKGBUILD"
     else # aur.archlinux.org
         pkg="https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$package"
     fi
 
-    local version="$package/version"
+    # may not exist, so use path to check its existence first.
+    local version_path="$package/version"
 
     local new_version=$(curl $pkg | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
 
     local update_list='update_list'
 
-    compare_version "$version" "$new_version"
+    compare_version "$version_path" "$new_version"
 
     case $? in
         0)
@@ -91,7 +97,7 @@ check_update() {
         1)
             echo "There are updates for $package"
             echo "$package $new_version" >> $update_list
-            echo "$new_version" > "$version"
+            echo "$new_version" > "$version_path"
             ;;
     esac
 
@@ -108,13 +114,12 @@ compare_version() {
         local version=""
     fi
 
+    # we check if the new_version is equal to version, rather than bigger or less,
     # if version is null, then build it, and append new_version to it
-    # next time, we check if the new_version is equal to version
-    # rather than bigger or less
     # (determine bigger or less is difficult for somthing like 6.10.3.zen1-1 and 6.9.3.zen1-2)
     if [[ "$version" == "$new_version" ]]; then
         return 0
-    else # verison is null or less
+    else # verison is null or different
         return 1
     fi
 }
