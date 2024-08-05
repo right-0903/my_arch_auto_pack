@@ -2,6 +2,8 @@
 
 before() {
     echo "quirks before for zsh-theme-powerlevel10k"
+    # fix build
+    sed -i '/^\s.make/c\sed -i '\''s/-Werror/#-Werror/g'\'' Makefile\nmake' PKGBUILD
 }
 
 after() {
@@ -11,11 +13,35 @@ after() {
     # so we make manjaro-zsh-config again, after zsh-theme-powerlevel10k
 
     # workdir: repos/zsh-theme-powerlevel10k
-    pacman -U ./*zst --noconfirm
+    sudo pacman -U ./*zst --noconfirm
     build '../manjaro-zsh-config'
     # after manjaro-zsh-config build finished, would back to repos dir
     # zsh-theme-powerlevel10k would also cd ..
     cd 'zsh-theme-powerlevel10k'
+}
+
+build() {
+    cd "$1"
+    prepare
+    makepkg -s --noconfirm
+    post
+    mv ./*zst /home/nuvole/prod
+    cd ..
+}
+
+prepare() {
+    echo "do the prepare jobs, $(pwd)"
+    # add patches for some packages
+    if [ -f 'quirks' ]; then
+        chmod +x quirks
+        ./quirks before
+    fi
+}
+
+post() {
+    if [ -f 'quirks' ]; then
+        ./quirks after
+    fi
 }
 
 "$1"
