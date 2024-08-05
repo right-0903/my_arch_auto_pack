@@ -32,9 +32,17 @@ git_push() {
     git commit -m "$localtime: updated" -m "$(cat 'update_list')"
 }
 
-rename_invalid_name() {
-    "$GITHUB_WORKSPACE/utils/change_invalid_name.sh" "$GITHUB_WORKSPACE/builddir/root.x86_64/home/nuvole/prod/"
+handle_prod() {
+    # TODO: with makepkg option !debug
+    # remove debug package
+    if ls "$GITHUB_WORKSPACE/builddir/root.x86_64/home/nuvole/prod/"*-debug-* 1> /dev/null 2>&1; then
+        rm "$GITHUB_WORKSPACE/builddir/root.x86_64/home/nuvole/prod/"*-debug-*
+    fi
+
+    # remove invalid characters from package name (github upload artifacts require this,
+    # release upload does not, so disable it but keep it in case.)
+    # "$GITHUB_WORKSPACE/utils/change_invalid_name.sh" "$GITHUB_WORKSPACE/builddir/root.x86_64/home/nuvole/prod/"
 }
 
 git_push
-rename_invalid_name
+handle_prod
