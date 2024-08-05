@@ -84,6 +84,7 @@ check_update() {
     elif [[ "$host" == 'gitlab' ]]; then
         # FIXME: it is not always main.
         pkg="${url}/-/raw/main/PKGBUILD"
+        local pkg2="${url}/-/raw/master/PKGBUILD"
     else # aur.archlinux.org
         pkg="https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$package"
     fi
@@ -92,6 +93,9 @@ check_update() {
     local version_path="$package/version"
 
     local new_version=$(curl $pkg | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
+    if [[ "$new_version" == '-' ]]; then
+        new_version=$(curl $pkg2 | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
+    fi
 
     compare_version "$version_path" "$new_version"
 
