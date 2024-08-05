@@ -4,16 +4,15 @@ main() {
 
     cd "$GITHUB_WORKSPACE"/repos
 
-    local update_list='update_list'
-    if [ -f "$update_list" ]; then
+    if [ -f 'update_list' ]; then
         # check if last update list is empty
-        if [[ -n "$(<$update_list)" ]]; then
-            mv "update_list" "update_list.old"
-            touch "$update_list"
+        if [[ -n "$(<'update_list')" ]]; then
+            mv 'update_list' 'update_list.old'
+            touch 'update_list'
         fi
     else
         # if update list not exist(initialize or reset)
-        touch "$update_list"
+        touch 'update_list'
     fi
 
     for package in */ ; do
@@ -22,7 +21,7 @@ main() {
     done
 
     # if there is an update, initialize archlinux container
-    if [[ -n "$(<$update_list)" ]]; then
+    if [[ -n "$(<'update_list')" ]]; then
         echo "===============initialize archlinux container==============="
         "$GITHUB_WORKSPACE/utils/make_arch_chroot.sh"
         echo "==============archlinux container initialized==============="
@@ -86,8 +85,6 @@ check_update() {
 
     local new_version=$(curl $pkg | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
 
-    local update_list='update_list'
-
     compare_version "$version_path" "$new_version"
 
     case $? in
@@ -96,7 +93,7 @@ check_update() {
             ;;
         1)
             echo "There are updates for $package"
-            echo "$package $new_version" >> $update_list
+            echo "$package $new_version" >> 'update_list'
             echo "$new_version" > "$version_path"
             ;;
     esac
