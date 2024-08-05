@@ -13,7 +13,7 @@ git_push() {
 
     cd "$GITHUB_WORKSPACE"
     localtime="$(timedatectl | grep 'Local time' | awk '{print $4"_"$5}')"
-    git commit -m "$localtime: $update_list"
+    git commit -m "$localtime: updated" -m "$update_list"
 }
 
 rename_invalid_name() {
