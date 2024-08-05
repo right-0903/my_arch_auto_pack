@@ -20,7 +20,6 @@ main() {
     mkdir /home/nuvole/prod
     for package in */ ; do
         build $package
-        mv "$package"/*zst /home/nuvole/prod
         echo "${package%/} done!"
     done
     # fix permission for upload-artifact
@@ -33,6 +32,7 @@ build() {
     # TODO: parse the order of dependencies, only install makedepends
     makepkg -s --noconfirm
     post
+    mv ./*zst /home/nuvole/prod
     cd ..
 }
 
