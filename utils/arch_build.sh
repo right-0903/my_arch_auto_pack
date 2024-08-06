@@ -51,6 +51,7 @@ build() {
     cd "$1"
     prepare
     # TODO: parse the order of dependencies, only install makedepends
+    # maybe a qsort with the cmp function(package A is later(greater) than package B if B in A's dependencies)
     makepkg -s --noconfirm
     post
     mv ./*zst "$PROD_DIR"
