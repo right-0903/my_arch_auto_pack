@@ -13,21 +13,27 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: run scripts
+    - name: Update
       run: |
         ${{ github.workspace }}/utils/query_update.sh
 
-    - name: Push changes
+    - name: Commit changes and Handle products
+      run: |
+        ${{ github.workspace }}/utils/post_update.sh
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GPG_SIGNING_KEY_ARCH: ${{ secrets.GPG_SIGNING_KEY_ARCH }}
+
+    - name: Push changes
       run: |
         git push -u origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          ${{ github.workspace }}/builddir/root.x86_64/home/nuvole/prod/*.zst
+          ${{ github.workspace }}/builddir/root.x86_64/home/nuvole/prod/*
         tag_name: packages
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
