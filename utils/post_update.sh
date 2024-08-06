@@ -47,11 +47,23 @@ git_push() {
 }
 
 handle_prod() {
+    local PROD_DIR="$GITHUB_WORKSPACE/builddir/root.x86_64/home/nuvole/prod"
     # TODO: with makepkg option !debug
     # remove debug package
-    if ls "$GITHUB_WORKSPACE/builddir/root.x86_64/home/nuvole/prod/"*-debug-* 1> /dev/null 2>&1; then
-        rm "$GITHUB_WORKSPACE/builddir/root.x86_64/home/nuvole/prod/"*-debug-*
+    if ls "$PROD_DIR"/*-debug-* 1> /dev/null 2>&1; then
+        rm "$PROD_DIR"/*-debug-*
     fi
+
+    # GPG sign
+    echo "$GPG_SIGNING_KEY_ARCH" | gpg --import
+    # the only one key, shoould be default
+    # gpg --default-key "$GPG_SIGNING_KEY_ARCH_ID"
+
+    # specifc .tar.zst to skip repo database files
+    for FILE in "$PROD_DIR"/*.tar.zst; do
+        echo "Signing $FILE"
+        gpg --output "$FILE.sig" --detach-sig "$FILE"
+    done
 
     # remove invalid characters from package name (github upload artifacts require this,
     # release upload does not, so disable it but keep it in case.)

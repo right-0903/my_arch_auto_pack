@@ -24,6 +24,10 @@ main() {
         build $package
         echo "${package%/} done!"
     done
+
+    # create my arch repo
+    repo-add --sign /home/nuvole/prod/nuvole-arch.db.tar.gz /home/nuvole/prod/*.pkg.tar.zst
+
     # fix permission for upload-artifact
     chmod 777 -R /home/nuvole
 }
