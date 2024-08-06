@@ -6,6 +6,8 @@
 # =============================================================================
 
 
+PROD_DIR='/home/nuvole/prod'
+
 main() {
 
     # import gpg
@@ -19,14 +21,27 @@ main() {
     export BUILDDIR=/tmp/makepkg makepkg
 
     # build
-    mkdir /home/nuvole/prod
+    mkdir "$PROD_DIR"
     for package in */ ; do
         build $package
         echo "${package%/} done!"
     done
 
-    # create my arch repo
-    repo-add --sign /home/nuvole/prod/nuvole-arch.db.tar.gz /home/nuvole/prod/*.pkg.tar.zst
+    cd "$PROD_DIR"
+    # download my arch repo databases if they exist, then update them
+    local URL='https://github.com/right-0903/my_arch_auto_pack/releases/download/packages'
+    local PACKAGE_DB='nuvole-arch.db.tar.gz'
+    local FILES_DB='nuvole-arch.files.tar.gz'
+    if curl --output "$PACKAGE_DB" --silent --head --fail "$URL/$PACKAGE_DB" > /dev/null; then
+        curl --output $PACKAGE_DB "$URL/$PACKAGE_DB"
+    fi
+
+    if curl --output "$FILES_DB" --silent --head --fail "$URL/$FILES_DB" > /dev/null; then
+        curl --output $FILES_DB "$URL/$FILES_DB"
+    fi
+
+    # only add packages that are not already in the databases, not --sign for now
+    repo-add -new nuvole-arch.db.tar.gz *.pkg.tar.zst
 
     # fix permission for upload-artifact
     chmod 777 -R /home/nuvole
@@ -38,7 +53,7 @@ build() {
     # TODO: parse the order of dependencies, only install makedepends
     makepkg -s --noconfirm
     post
-    mv ./*zst /home/nuvole/prod
+    mv ./*zst "$PROD_DIR"
     cd ..
 }
 
