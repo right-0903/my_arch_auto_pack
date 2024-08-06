@@ -1,9 +1,2 @@
-succeed	cantata-qt6	3.2.0-1
-succeed	cloudflare-warp-bin	2024.4.133-2
-succeed	libpamac-aur	11.6.4-1
-succeed	looking-glass	B6-8
-succeed	manjaro-asian-input-support	2021.09-1
-succeed	pamac-aur	11.7.1-4
-succeed	resources	1.5.1-1
-failed	tuxclocker	1.5.1-1
-failed	tuxedo-control-center-bin	2.1.12-1
+succeed	timeshift-autosnap	0.9-1
+succeed	tuxedo-control-center-bin	2.1.12-1
