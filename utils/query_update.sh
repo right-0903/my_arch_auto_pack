@@ -35,6 +35,7 @@ main() {
         echo "==============archlinux container initialized==============="
         # packages have benn added into update_list, query update_list and git clone repos
         "$GITHUB_WORKSPACE/utils/prepare_update.sh"
+        "$GITHUB_WORKSPACE/utils/post_update.sh"
     else
         echo "There is nothing to do."
         echo "There is nothing to do."

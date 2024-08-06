@@ -16,10 +16,6 @@ jobs:
     - name: Update
       run: |
         ${{ github.workspace }}/utils/query_update.sh
-
-    - name: Commit changes and Handle products
-      run: |
-        ${{ github.workspace }}/utils/post_update.sh
       env:
         GPG_SIGNING_KEY_ARCH: ${{ secrets.GPG_SIGNING_KEY_ARCH }}
 
