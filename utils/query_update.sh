@@ -92,6 +92,8 @@ check_update() {
     # may not exist, so use path to check its existence first.
     local version_path="$package/version"
 
+    # FIXME: handle epoch, ver=epoch:pkgver-pkgrel, but epoch will carry a colon : which causes
+    # release process replace it with a dot. , currently, I ignore epoch, one day pacman may miss a update.
     local new_version=$(curl $pkg | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
     if [[ "$new_version" == '-' ]]; then
         new_version=$(curl $pkg2 | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')

@@ -23,6 +23,11 @@ main() {
     # build
     mkdir "$PROD_DIR"
     for package in */ ; do
+        # for now, ignore epoch
+        if grep -q 'epoch=' "$package/PKGBUILD"; then
+            echo "remove epoch for ${package%/}"
+        fi
+        sed -i 's/^\s*epoch=[0-9]\+//' "$package/PKGBUILD"
         build $package
         echo "${package%/} done!"
     done
