@@ -94,9 +94,9 @@ check_update() {
 
     # FIXME: handle epoch, ver=epoch:pkgver-pkgrel, but epoch will carry a colon : which causes
     # release process replace it with a dot. , currently, I ignore epoch, one day pacman may miss a update.
-    local new_version=$(curl $pkg | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
+    local new_version=$(curl --silent $pkg | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
     if [[ "$new_version" == '-' ]]; then
-        new_version=$(curl $pkg2 | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
+        new_version=$(curl --silent $pkg2 | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
     fi
 
     compare_version "$version_path" "$new_version"
