@@ -34,12 +34,17 @@ main() {
     local FILES_DB='nuvole-arch.files.tar.gz'
     if curl --output "$PACKAGE_DB" --silent --head --fail "$URL/$PACKAGE_DB" > /dev/null; then
         # use '-L' because github will redirect it.
-        curl -L --output $PACKAGE_DB "$URL/nuvole-arch.db"
+        curl -L --output $PACKAGE_DB "$URL/$PACKAGE_DB"
     fi
 
     if curl --output "$FILES_DB" --silent --head --fail "$URL/$FILES_DB" > /dev/null; then
-        curl -L --output $FILES_DB "$URL/nuvole-arch.files"
+        curl -L --output $FILES_DB "$URL/$FILES_DB"
     fi
+
+    # TODO: if there is a repo update broken, the non tar.gz suffix should be safe, so use it
+    # a repo update broken may cause a invalid tar.gz file, check it then replace it
+    # curl -L --output $PACKAGE_DB "(echo $URL/$PACKAGE_DB | sed 's/\.tar\.gz$//')"
+    # or we can check if repo is valid before upload it
 
     # only add packages that are not already in the databases, not --sign for now
     repo-add --new "$PACKAGE_DB" *.pkg.tar.zst
