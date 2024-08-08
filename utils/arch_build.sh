@@ -34,15 +34,15 @@ main() {
     local FILES_DB='nuvole-arch.files.tar.gz'
     if curl --output "$PACKAGE_DB" --silent --head --fail "$URL/$PACKAGE_DB" > /dev/null; then
         # use '-L' because github will redirect it.
-        curl -L --output $PACKAGE_DB "$URL/$PACKAGE_DB"
+        curl -L --output $PACKAGE_DB "$URL/nuvole-arch.db"
     fi
 
     if curl --output "$FILES_DB" --silent --head --fail "$URL/$FILES_DB" > /dev/null; then
-        curl -L --output $FILES_DB "$URL/$FILES_DB"
+        curl -L --output $FILES_DB "$URL/nuvole-arch.files"
     fi
 
     # only add packages that are not already in the databases, not --sign for now
-    repo-add --new nuvole-arch.db.tar.gz *.pkg.tar.zst
+    repo-add --new "$PACKAGE_DB" *.pkg.tar.zst
 
     # fix permission for upload-artifact
     chmod 777 -R /home/nuvole
