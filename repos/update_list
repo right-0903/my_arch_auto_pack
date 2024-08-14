@@ -1,1 +1,4 @@
-succeed	wemeet-bin	3.19.2.400-1
+succeed	manjaro-asian-input-support	-
+succeed	manjaro-zsh-config	-
+succeed	ttf-meslo-nerd-font-powerlevel10k	-
+succeed	zsh-theme-powerlevel10k	-
