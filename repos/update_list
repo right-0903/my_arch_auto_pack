@@ -1,2 +1,2 @@
-succeed	cloudflare-warp-bin	2024.6.497-1
-succeed	wemeet-bin	3.19.2.400-2
+succeed	wemeet-bin	3.19.2.400-3
+failed	zsh-theme-powerlevel10k	1.20.0-2
