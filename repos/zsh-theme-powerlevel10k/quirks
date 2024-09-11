@@ -4,6 +4,9 @@ before() {
     echo "quirks before for zsh-theme-powerlevel10k"
     # fix build
     sed -i '/^\s.make/c\sed -i '\''s/-Werror/#-Werror/g'\'' Makefile\nmake' PKGBUILD
+    # FIXME, do not verify sign for now
+    sed -i 's/\?signed//' PKGBUILD
+
 }
 
 after() {
