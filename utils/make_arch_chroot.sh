@@ -39,6 +39,13 @@ sudo chown root:root -R ./root.x86_64
 # refer to https://wiki.archlinux.org/title/Install_Arch_Linux_from_existing_Linux#Downloading_basic_tools
 sudo mount --bind ./root.x86_64/ ./root.x86_64/
 
+# use dependnecies built before
+sudo sh -c 'echo [nuvole-arch] >> ./root.x86_64/etc/pacman.conf'
+sudo sh -c 'echo "Server = https://github.com/right-0903/my_arch_auto_pack/releases/download/packages" >> ./root.x86_64/etc/pacman.conf'
+# trust key
+sudo arch-chroot ./root.x86_64/ sh -c "curl 'https://raw.githubusercontent.com/right-0903/my_arch_auto_pack/main/keys/CA909D46CD1890BE.asc' > /root/CA909D46CD1890BE.asc"
+sudo arch-chroot ./root.x86_64/ sh -c 'pacman-key --add /root/CA909D46CD1890BE.asc && pacman-key --lsign-key CA909D46CD1890BE'
+
 sudo arch-chroot ./root.x86_64/ sh -c 'pacman-key --init && pacman-key --populate && pacman -Syu --noconfirm'
 sudo arch-chroot ./root.x86_64/ pacman -S base-devel git curl --noconfirm
 
