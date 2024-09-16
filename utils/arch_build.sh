@@ -19,6 +19,8 @@ main() {
     printenv MAKEFLAGS
     # building from files in memory
     export BUILDDIR=/tmp/makepkg makepkg
+    # set packager
+    export PACKAGER='nuvole <me@nuvole.eu.org>'
 
     # build
     mkdir "$PROD_DIR"
