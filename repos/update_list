@@ -1,5 +1,4 @@
-failed	btrfs-assistant	2.1.1-1
-failed	hid-ite8291r3-dkms-git	r14.7ad5991-2
+succeed	btrfs-assistant	2.1.1-1
+succeed	hid-ite8291r3-dkms-git	r14.7ad5991-2
 failed	spotify-adblock	1.0.3-2
-succeed	spotify	'1.2.45.454'-1
-failed	vscodium-bin	1.93.1.24256-1
+succeed	vscodium-bin	1.93.1.24256-1
