@@ -1,4 +1,2 @@
-succeed	btrfs-assistant	2.1.1-1
-succeed	hid-ite8291r3-dkms-git	r14.7ad5991-2
+succeed	libpamac-aur	11.6.4-6
 failed	spotify-adblock	1.0.3-2
-succeed	vscodium-bin	1.93.1.24256-1
