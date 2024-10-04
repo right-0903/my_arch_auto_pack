@@ -1,0 +1,14 @@
+#!/bin/bash
+
+before() {
+    echo "quirks before for tor-browser-bin"
+    gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
+
+}
+
+after() {
+    echo "quirks after for tor-browser-bin"
+
+}
+
+"$1"
