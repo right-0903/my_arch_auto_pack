@@ -1,0 +1,13 @@
+#! /bin/bash
+
+before() {
+    echo "quirks before"
+}
+
+after() {
+    echo "quirks after"
+    # remove source arch package from docker.com
+    rm $(ls ./  | grep -Ei 'docker-desktop-[0-9.]+-x86.*$')
+}
+
+"$1"
