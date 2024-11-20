@@ -1,1 +1,3 @@
-succeed	tor-browser-bin	'14.0.2'-1
+succeed	cloudflare-warp-bin	2024.11.309-1
+succeed	docker-desktop	4.36.0-1
+succeed	spotify	'1.2.50.335'-1
