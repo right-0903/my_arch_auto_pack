@@ -1,1 +1,2 @@
-succeed	pamac-aur	11.7.2-3
+succeed	cantata-qt6	3.3.0-1
+succeed	kc57-drivers-dkms	$(curl
