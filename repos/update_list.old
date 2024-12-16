@@ -1,2 +1,2 @@
-succeed	docker-desktop	4.37.0-1
-succeed	vscodium-bin	1.96.0.24347-1
+succeed	linux-firmware-gaokun3	1.10.0-1
+failed	linux-gaokun3	6.12.y-1
