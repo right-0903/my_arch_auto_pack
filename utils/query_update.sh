@@ -99,6 +99,13 @@ check_update() {
         new_version=$(curl --silent $pkg2 | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
     fi
 
+    # if there is a command to get version (i.e. pkgver=$(...))
+    if echo "$new_version" | grep -E '^\$(.*)-[0-9]+$'; then
+        pkgver=$(echo "$new_version" | sed -n 's/^\$(\(.*\))-[0-9]$/\1/p')
+        pkgrel=$(echo "$new_version" | sed -n 's/.*-\([0-9]\)$/\1/p')
+        new_version=$(eval $pkgver)-$pkgrel
+    fi
+
     compare_version "$version_path" "$new_version"
 
     case $? in
