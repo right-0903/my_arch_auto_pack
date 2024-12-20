@@ -56,6 +56,15 @@ main() {
     # only add packages that are not already in the databases, not --sign for now
     repo-add --new "$PACKAGE_DB" *.pkg.tar.zst
 
+    # repo-remove when packages in repos are removed
+    local remove_list=$(cat /home/nuvole/repos/remove_list)
+    remove_list=($remove_list)
+
+    local length=${#remove_list[@]}
+    for (( i=0; i<$length; i++ )); do
+        repo-remove "$PACKAGE_DB" "${remove_list[$i]}"
+    done
+
     # fix permission for upload-artifact
     chmod 777 -R /home/nuvole
 }

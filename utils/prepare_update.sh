@@ -41,6 +41,11 @@ main() {
         fi
     done
 
+    # deal remove_list
+    if [ -f "$GITHUB_WORKSPACE/repos/remove_list" ]; then
+        cp "$GITHUB_WORKSPACE/repos/remove_list" "$GITHUB_WORKSPACE/builddir/repos"
+    fi
+
     sudo cp -r repos root.x86_64/home/nuvole/
 
     # avoid permission issues

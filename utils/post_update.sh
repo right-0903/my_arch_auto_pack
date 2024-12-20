@@ -18,6 +18,7 @@ git_push() {
 
     # reset update_list, mark succeed or failed
     rm 'update_list' && touch 'update_list'
+    mv 'remove_list' 'remove_list.old' && touch 'remove_list'
 
     local length=${#package_list[@]}
     for (( i=0; i<$length; i++ )); do
@@ -39,6 +40,7 @@ git_push() {
 
     git config --global user.name "nuvole"
     git config --global user.email "github-actions[bot]@users.noreply.github.com"
+    git add remove_list*
     git add update_list*
     git add */version
 
