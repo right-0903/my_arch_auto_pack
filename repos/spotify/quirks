@@ -7,6 +7,12 @@ before() {
 
 after() {
     echo "quirks after"
+    for ((i = 1; i <= 5; i++))
+    do
+        if [ ! -f ./*zst ]; then
+            makepkg -s --noconfirm
+        fi
+    done
 }
 
 "$1"
