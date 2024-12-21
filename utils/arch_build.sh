@@ -106,7 +106,7 @@ update_repo() {
         git config user.name "nuvole"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add .
-        local new_version=$(cat .SRCINFO | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
+        local new_version=$(cat .SRCINFO | awk -F ' = ' '{a[$1]=$2} END {print a["\tpkgver"] "-" a["\tpkgrel"]}')
         git commit -m "v$new_version: updated by bot"
         GIT_SSH_COMMAND="ssh -i $AUR_KEY_PATH" git push
         cd ..
