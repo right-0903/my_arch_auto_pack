@@ -31,6 +31,7 @@ main() {
         fi
         sed -i 's/^\s*epoch=[0-9]\+//' "$package/PKGBUILD"
         build $package
+        update_repo ${package%/}
         echo "${package%/} done!"
     done
 
@@ -92,6 +93,24 @@ prepare() {
 post() {
     if [ -f 'quirks' ]; then
         ./quirks after
+    fi
+}
+
+update_repo() {
+    if [[ -f "$1/my_repo" ]]; then
+        # only aur use this now
+        local AUR_KEY_PATH='/home/nuvole/aur_key'
+        GIT_SSH_COMMAND="ssh -i $AUR_KEY_PATH -o StrictHostKeyChecking=no" git clone "ssh://aur@aur.archlinux.org/$1.git" 'my_repo'
+        cd 'my_repo'
+        makepkg --printsrcinfo > .SRCINFO
+        git config user.name "nuvole"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        local new_version=$(cat .SRCINFO | awk -F= '{a[$1]=$2} END {print a["pkgver"] "-" a["pkgrel"]}')
+        git commit -m "v$new_version: updated by bot"
+        GIT_SSH_COMMAND="ssh -i $AUR_KEY_PATH" git push
+        cd ..
+        rm -rf 'my_repo'
     fi
 }
 

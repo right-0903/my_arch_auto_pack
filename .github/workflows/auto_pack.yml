@@ -18,6 +18,7 @@ jobs:
         ${{ github.workspace }}/utils/query_update.sh
       env:
         GPG_SIGNING_KEY_ARCH: ${{ secrets.GPG_SIGNING_KEY_ARCH }}
+        AUR_KEY: ${{ secrets.AUR_KEY }}
 
     - name: Push changes
       run: |

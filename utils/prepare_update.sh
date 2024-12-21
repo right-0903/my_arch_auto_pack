@@ -33,11 +33,15 @@ main() {
     cd ..
     cp ../utils/arch_build.sh ./repos
 
-    # deal quirks
+    # deal quirks & my_repo
     for item in "${update_list[@]}"; do
         if [ -f "$GITHUB_WORKSPACE/repos/$item/quirks" ]; then
             echo "$item have quirks"
             cp "$GITHUB_WORKSPACE/repos/$item/quirks" "$GITHUB_WORKSPACE/builddir/repos/$item"
+        fi
+        if [ -f "$GITHUB_WORKSPACE/repos/$item/my_repo" ]; then
+            echo "$item is my_repo"
+            cp "$GITHUB_WORKSPACE/repos/$item/my_repo" "$GITHUB_WORKSPACE/builddir/repos/$item"
         fi
     done
 
@@ -47,6 +51,9 @@ main() {
     fi
 
     sudo cp -r repos root.x86_64/home/nuvole/
+
+    echo "$AUR_KEY" | sudo tee root.x86_64/home/nuvole/aur_key > /dev/null
+    sudo chmod 400 'root.x86_64/home/nuvole/aur_key'
 
     # avoid permission issues
     sudo arch-chroot root.x86_64 sh -c 'chown nuvole:nuvole -R /home/nuvole'

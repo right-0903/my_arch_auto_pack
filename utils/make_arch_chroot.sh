@@ -51,7 +51,7 @@ sudo install -m 444 "$GITHUB_WORKSPACE/keys/CA909D46CD1890BE.asc" './root.x86_64
 sudo arch-chroot ./root.x86_64/ sh -c 'pacman-key --add /root/CA909D46CD1890BE.asc && pacman-key --lsign-key CA909D46CD1890BE'
 
 # update and install
-sudo arch-chroot ./root.x86_64/ sh -c 'pacman -Syu base-devel git curl --noconfirm'
+sudo arch-chroot ./root.x86_64/ sh -c 'pacman -Syu base-devel git curl openssh --noconfirm'
 
 # makepkg refuse to work when user is root, create a new user instead of hacking makepkg
 sudo arch-chroot ./root.x86_64/ sh -c 'useradd -m -s /bin/bash nuvole'
