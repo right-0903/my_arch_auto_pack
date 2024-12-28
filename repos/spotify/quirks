@@ -2,7 +2,8 @@
 
 before() {
     echo "quirks before"
-    curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | gpg --import -
+    cmd=$(cat PKGBUILD | sed -n 's/^#\s\(curl.*\)/\1/p')
+    eval $cmd
 }
 
 after() {
