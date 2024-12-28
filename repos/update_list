@@ -1,1 +1,2 @@
-succeed	spotify	'1.2.52.442'-2
+succeed	linux-firmware-gaokun3	1.10.0-2
+failed	linux-gaokun3	6.12.y-4
