@@ -40,13 +40,12 @@ main() {
     local URL='https://github.com/right-0903/my_arch_auto_pack/releases/download/packages'
     local PACKAGE_DB='nuvole-arch.db.tar.gz'
     local FILES_DB='nuvole-arch.files.tar.gz'
-    if curl --output "$PACKAGE_DB" --silent --head --fail "$URL/$PACKAGE_DB" > /dev/null; then
-        # use '-L' because github will redirect it.
-        curl -L --output $PACKAGE_DB "$URL/$PACKAGE_DB"
-    fi
 
-    if curl --output "$FILES_DB" --silent --head --fail "$URL/$FILES_DB" > /dev/null; then
-        curl -L --output $FILES_DB "$URL/$FILES_DB"
+    # use '-L' because github will redirect it, and we check DB only.
+    http_code=$(curl -L -o /dev/null -w "%{http_code}" "$URL/$PACKAGE_DB")
+    if [ "$http_code" -eq 200 ]; then
+        curl -L -o $PACKAGE_DB "$URL/$PACKAGE_DB"
+        curl -L -o $FILES_DB "$URL/$FILES_DB"
     fi
 
     # TODO: if there is a repo update broken, the non tar.gz suffix should be safe, so use it
