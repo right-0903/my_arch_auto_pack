@@ -35,6 +35,7 @@ main() {
 
     # deal quirks & my_repo
     for item in "${update_list[@]}"; do
+        # TODO: use a loop?
         if [ -f "$GITHUB_WORKSPACE/repos/$item/quirks" ]; then
             echo "$item have quirks"
             cp "$GITHUB_WORKSPACE/repos/$item/quirks" "$GITHUB_WORKSPACE/builddir/repos/$item"
@@ -43,6 +44,10 @@ main() {
             echo "$item is my_repo"
             cp "$GITHUB_WORKSPACE/repos/$item/my_repo" "$GITHUB_WORKSPACE/builddir/repos/$item"
         fi
+        if [ -f "$GITHUB_WORKSPACE/repos/$item/aarch64" ]; then
+            echo "$item is aarch64"
+            cp "$GITHUB_WORKSPACE/repos/$item/aarch64" "$GITHUB_WORKSPACE/builddir/repos/$item"
+        fi
     done
 
     # deal remove_list
@@ -50,15 +55,18 @@ main() {
         cp "$GITHUB_WORKSPACE/repos/remove_list" "$GITHUB_WORKSPACE/builddir/repos"
     fi
 
-    sudo cp -r repos root.x86_64/home/nuvole/
+    CHROOT=('root.x86_64' 'root.aarch64')
 
-    echo "$AUR_KEY" | sudo tee root.x86_64/home/nuvole/aur_key > /dev/null
-    sudo chmod 400 'root.x86_64/home/nuvole/aur_key'
+    for arch in "${CHROOT[@]}"; do
+        sudo cp -r repos $arch/home/nuvole/
 
-    # avoid permission issues
-    sudo arch-chroot root.x86_64 sh -c 'chown nuvole:nuvole -R /home/nuvole'
-    sudo arch-chroot root.x86_64 sh -c "su - nuvole -c '/home/nuvole/repos/arch_build.sh' "
+        echo "$AUR_KEY" | sudo tee $arch/home/nuvole/aur_key > /dev/null
+        sudo chmod 400 "$arch/home/nuvole/aur_key"
 
+        # avoid permission issues
+        sudo arch-chroot $arch sh -c 'chown nuvole:nuvole -R /home/nuvole'
+        sudo arch-chroot $arch sh -c "su - nuvole -c '/home/nuvole/repos/arch_build.sh $arch' "
+    done
 }
 
 main

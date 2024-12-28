@@ -7,6 +7,7 @@
 
 
 PROD_DIR='/home/nuvole/prod'
+ARCH="$1"
 
 main() {
 
@@ -25,6 +26,12 @@ main() {
     # build
     mkdir "$PROD_DIR"
     for package in */ ; do
+        if [[ $ARCH == 'root.aarch64' ]]; then
+            if [ ! -f "$package/aarch64" ]; then
+                continue
+            fi
+        fi
+
         # for now, ignore epoch
         if grep -q 'epoch=' "$package/PKGBUILD"; then
             echo "remove epoch for ${package%/}"
@@ -41,6 +48,11 @@ main() {
     local PACKAGE_DB='nuvole-arch.db.tar.gz'
     local FILES_DB='nuvole-arch.files.tar.gz'
 
+    if [[ $ARCH == 'root.aarch64' ]]; then
+        local PACKAGE_DB='nuvole-arch-aarch64.db.tar.gz'
+        local FILES_DB='nuvole-arch-aarch64.files.tar.gz'
+    fi
+
     # use '-L' because github will redirect it, and we check DB only.
     http_code=$(curl -L -o /dev/null -w "%{http_code}" "$URL/$PACKAGE_DB")
     if [ "$http_code" -eq 200 ]; then
@@ -53,8 +65,9 @@ main() {
     # curl -L --output $PACKAGE_DB "(echo $URL/$PACKAGE_DB | sed 's/\.tar\.gz$//')"
     # or we can check if repo is valid before upload it
 
-    # only add packages that are not already in the databases, not --sign for now
-    repo-add --new "$PACKAGE_DB" *.pkg.tar.zst
+    # FIXME: --new for only add packages that are not already in the databases, not --sign for now
+    # This causes package info unchanged, new package may not same as the old, like size
+    repo-add --new "$PACKAGE_DB" *.pkg.tar.*
 
     # repo-remove when packages in repos are removed
     local remove_list=$(cat /home/nuvole/repos/remove_list)
@@ -76,7 +89,7 @@ build() {
     # maybe a qsort with the cmp function(package A is later(greater) than package B if B in A's dependencies)
     makepkg -s --noconfirm
     post
-    mv ./*zst "$PROD_DIR"
+    mv ./*.pkg.tar.* "$PROD_DIR"
     cd ..
 }
 

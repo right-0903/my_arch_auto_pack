@@ -32,6 +32,8 @@ main() {
     if [[ -n "$(<'update_list')" ]]; then
         echo "===============initialize archlinux container==============="
         "$GITHUB_WORKSPACE/utils/make_arch_chroot.sh"
+        # TODO: decuple them, if there is no aarch64 need updating.
+        "$GITHUB_WORKSPACE/utils/make_arch_chroot_aarch64.sh"
         echo "==============archlinux container initialized==============="
         # packages have benn added into update_list, query update_list and git clone repos
         "$GITHUB_WORKSPACE/utils/prepare_update.sh"
@@ -106,6 +108,9 @@ check_update() {
         new_version=$(eval $pkgver)-$pkgrel
     fi
 
+    # FIXME: let us use `makepkg --printsrcinfo > .SRCINFO` to determine
+    # version things, there is a change to .SRCINFO if a update is coming,
+    # then dynamically fetching version by shell
     compare_version "$version_path" "$new_version"
 
     case $? in

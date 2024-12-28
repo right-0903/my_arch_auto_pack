@@ -31,6 +31,7 @@ jobs:
       with:
         files: |
           ${{ github.workspace }}/builddir/root.x86_64/home/nuvole/prod/*
+          ${{ github.workspace }}/builddir/root.aarch64/home/nuvole/prod/*
         tag_name: packages
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
