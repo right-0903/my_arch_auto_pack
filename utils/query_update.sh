@@ -7,37 +7,46 @@
 # Usage: ./query_update.sh
 # =============================================================================
 
+ARCH="$1"
+UPDATE_FILE="update_list"
 
-main() {
+query_update() {
 
     cd "$GITHUB_WORKSPACE"/repos
 
-    if [ -f 'update_list' ]; then
-        # check if last update list is empty
-        if [[ -n "$(<'update_list')" ]]; then
-            mv 'update_list' 'update_list.old'
-            touch 'update_list'
-        fi
-    else
-        # if update list not exist(initialize or reset)
-        touch 'update_list'
-    fi
+    mv "$UPDATE_FILE" "$UPDATE_FILE.old" || true
 
+    # append update entries to file
     for package in */ ; do
         # in the form package1 package2 ... rather than package1/ package2/ ...
         check_update "${package%/}"
     done
 
+    mv "${UPDATE_FILE}_$ARCH" "${UPDATE_FILE}_$ARCH.old" || true
+}
+
+
+main() {
+
+    query_update
+
+    cd "$GITHUB_WORKSPACE"/repos
+
     # if there is an update, initialize archlinux container
     if [[ -n "$(<'update_list')" ]]; then
         echo "===============initialize archlinux container==============="
-        "$GITHUB_WORKSPACE/utils/make_arch_chroot.sh"
-        # TODO: decuple them, if there is no aarch64 need updating.
-        "$GITHUB_WORKSPACE/utils/make_arch_chroot_aarch64.sh"
+        case "$ARCH" in
+            'x86_64')
+                "$GITHUB_WORKSPACE/utils/make_arch_chroot.sh"
+                ;;
+            'aarch64')
+                "$GITHUB_WORKSPACE/utils/make_arch_chroot_aarch64.sh"
+                ;;
+        esac
         echo "==============archlinux container initialized==============="
         # packages have benn added into update_list, query update_list and git clone repos
-        "$GITHUB_WORKSPACE/utils/prepare_update.sh"
-        "$GITHUB_WORKSPACE/utils/post_update.sh"
+        "$GITHUB_WORKSPACE/utils/prepare_update.sh" "$ARCH"
+        "$GITHUB_WORKSPACE/utils/post_update.sh" "$ARCH"
     else
         echo "There is nothing to do."
         echo "There is nothing to do."
@@ -92,7 +101,7 @@ check_update() {
     fi
 
     # may not exist, so use path to check its existence first.
-    local version_path="$package/version"
+    local version_path="$package/version_$ARCH"
 
     # FIXME: handle epoch, ver=epoch:pkgver-pkgrel, but epoch will carry a colon : which causes
     # release process replace it with a dot. , currently, I ignore epoch, one day pacman may miss a update.
@@ -119,7 +128,7 @@ check_update() {
             ;;
         1)
             echo "There are updates for $package"
-            echo "$package $new_version" >> 'update_list'
+            echo "$package $new_version" >> "$UPDATE_FILE"
             echo "$new_version" > "$version_path"
             ;;
     esac

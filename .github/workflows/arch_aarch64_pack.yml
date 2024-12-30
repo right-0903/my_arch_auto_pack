@@ -1,8 +1,8 @@
-name: auto_pack
+name: arch_aarch64_pack
 
 on:
   schedule:
-    - cron: '0 1 * * *' # everyday 1:00 am (UTC)
+    - cron: '0 21 * * *' # everyday 9:00 pm (UTC) / 5:00 am (GTM+8)
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
 
     - name: Update
       run: |
-        ${{ github.workspace }}/utils/query_update.sh
+        ${{ github.workspace }}/utils/query_update.sh aarch64
       env:
         GPG_SIGNING_KEY_ARCH: ${{ secrets.GPG_SIGNING_KEY_ARCH }}
         AUR_KEY: ${{ secrets.AUR_KEY }}
@@ -30,8 +30,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          ${{ github.workspace }}/builddir/root.x86_64/home/nuvole/prod/*
           ${{ github.workspace }}/builddir/root.aarch64/home/nuvole/prod/*
-        tag_name: packages
+        tag_name: aarch64-packages
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

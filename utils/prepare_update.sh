@@ -8,6 +8,8 @@
 # =============================================================================
 
 
+ARCH="$1"
+
 main() {
 
     # packages have benn added into update_list, query update_list and git clone repos
@@ -55,18 +57,15 @@ main() {
         cp "$GITHUB_WORKSPACE/repos/remove_list" "$GITHUB_WORKSPACE/builddir/repos"
     fi
 
-    CHROOT=('root.x86_64' 'root.aarch64')
+    sudo cp -r repos "root.$ARCH/home/nuvole/"
 
-    for arch in "${CHROOT[@]}"; do
-        sudo cp -r repos $arch/home/nuvole/
+    echo "$AUR_KEY" | sudo tee "root.$ARCH/home/nuvole/aur_key" > /dev/null
+    sudo chmod 400 "root.$ARCH/home/nuvole/aur_key"
 
-        echo "$AUR_KEY" | sudo tee $arch/home/nuvole/aur_key > /dev/null
-        sudo chmod 400 "$arch/home/nuvole/aur_key"
+    # avoid permission issues
+    sudo arch-chroot root.$ARCH sh -c 'chown nuvole:nuvole -R /home/nuvole'
+    sudo arch-chroot root.$ARCH sh -c "su - nuvole -c '/home/nuvole/repos/arch_build.sh $ARCH' "
 
-        # avoid permission issues
-        sudo arch-chroot $arch sh -c 'chown nuvole:nuvole -R /home/nuvole'
-        sudo arch-chroot $arch sh -c "su - nuvole -c '/home/nuvole/repos/arch_build.sh $arch' "
-    done
 }
 
 main

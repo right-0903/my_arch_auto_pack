@@ -7,7 +7,7 @@
 
 
 PROD_DIR='/home/nuvole/prod'
-ARCH="$1"
+ARCH="$1" # only used by aarch64
 
 main() {
 
@@ -26,7 +26,7 @@ main() {
     # build
     mkdir "$PROD_DIR"
     for package in */ ; do
-        if [[ $ARCH == 'root.aarch64' ]]; then
+        if [[ $ARCH == 'aarch64' ]]; then
             if [ ! -f "$package/aarch64" ]; then
                 continue
             fi
@@ -48,7 +48,7 @@ main() {
     local PACKAGE_DB='nuvole-arch.db.tar.gz'
     local FILES_DB='nuvole-arch.files.tar.gz'
 
-    if [[ $ARCH == 'root.aarch64' ]]; then
+    if [[ $ARCH == 'aarch64' ]]; then
         local PACKAGE_DB='nuvole-arch-aarch64.db.tar.gz'
         local FILES_DB='nuvole-arch-aarch64.files.tar.gz'
     fi
@@ -90,6 +90,7 @@ build() {
     makepkg -s --noconfirm
     post
     mv ./*.pkg.tar.* "$PROD_DIR"
+    rm -rf /tmp/makepkg/* # clean
     cd ..
 }
 
