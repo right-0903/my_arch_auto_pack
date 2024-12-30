@@ -49,6 +49,9 @@ echo "Server = $MIRROR_URL"'/$arch/$repo' >> ${CHROOT_DIR}/etc/pacman.d/mirrorli
 echo '[nuvole-arch-aarch64]' >> ${CHROOT_DIR}/etc/pacman.conf
 echo "Server = https://github.com/right-0903/my_arch_auto_pack/releases/download/packages" >> ${CHROOT_DIR}/etc/pacman.conf
 
+# disable deubg
+sed -i 's/^\(OPTIONS.*\)\(debug\)\(.*)$\)/\1!\2\3/p' $CHROOT_DIR/etc/makepkg.conf
+
 # avoid pacman issue
 sudo chown root:root -R ${CHROOT_DIR}
 
