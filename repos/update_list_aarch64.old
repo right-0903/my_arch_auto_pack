@@ -1,0 +1,11 @@
+succeed	btrfs-assistant	2.1.1-1
+succeed	cantata-qt6	3.3.0-1
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	20240824-1
+succeed	libpamac-aur	11.7.0-2
+failed	manjaro-zsh-config	0.26-1
+succeed	pamac-aur	11.7.2-3
+succeed	timeshift-autosnap	0.9-1
+succeed	ttf-meslo-nerd-font-powerlevel10k	20230403-2
+succeed	vscodium-bin	1.96.2.24355-1
+succeed	wemeet-bin	3.19.2.400-3
+succeed	zsh-theme-powerlevel10k	1.20.0-2
