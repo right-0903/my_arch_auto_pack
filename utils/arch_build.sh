@@ -44,13 +44,14 @@ main() {
 
     cd "$PROD_DIR"
     # download my arch repo databases if they exist, then update them
-    local URL='https://github.com/right-0903/my_arch_auto_pack/releases/download/packages'
+    local URL='https://github.com/right-0903/my_arch_auto_pack/releases/download'
     local PACKAGE_DB='nuvole-arch.db.tar.gz'
     local FILES_DB='nuvole-arch.files.tar.gz'
 
     if [[ $ARCH == 'aarch64' ]]; then
-        local PACKAGE_DB='nuvole-arch-aarch64.db.tar.gz'
-        local FILES_DB='nuvole-arch-aarch64.files.tar.gz'
+        local URL="$URL/$ARCH-packages"
+    else # x86_64
+        local URL="$URL/packages"
     fi
 
     # use '-L' because github will redirect it, and we check DB only.
