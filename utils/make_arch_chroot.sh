@@ -45,9 +45,19 @@ sudo mount --bind ./root.x86_64/ ./root.x86_64/
 # initialize pacman
 sudo arch-chroot ./root.x86_64/ sh -c 'pacman-key --init && pacman-key --populate'
 
-# use dependnecies built before
-sudo sh -c 'echo [nuvole-arch] >> ./root.x86_64/etc/pacman.conf'
-sudo sh -c 'echo "Server = https://github.com/right-0903/my_arch_auto_pack/releases/download/packages" >> ./root.x86_64/etc/pacman.conf'
+
+# setting my arch repo databases if they exist
+local URL='https://github.com/right-0903/my_arch_auto_pack/releases/download/packages'
+local PACKAGE_DB='nuvole-arch.db.tar.gz'
+
+# use '-L' because github will redirect it, and we check DB only.
+http_code=$(curl -L -o /dev/null -w "%{http_code}" "$URL/$PACKAGE_DB")
+if [ "$http_code" -eq 200 ]; then
+    # use dependnecies built before
+    sudo sh -c 'echo [nuvole-arch] >> ./root.x86_64/etc/pacman.conf'
+    sudo sh -c 'echo "Server = https://github.com/right-0903/my_arch_auto_pack/releases/download/packages" >> ./root.x86_64/etc/pacman.conf'
+fi
+
 
 # trust key
 sudo install -m 444 "$GITHUB_WORKSPACE/keys/CA909D46CD1890BE.asc" './root.x86_64/root'

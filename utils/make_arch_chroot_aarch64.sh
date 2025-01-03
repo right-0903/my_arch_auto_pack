@@ -45,9 +45,17 @@ cp /usr/bin/qemu-aarch64-static  ${CHROOT_DIR}/usr/bin/qemu-aarch64-static
 sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 4/' ${CHROOT_DIR}/etc/pacman.conf
 echo "Server = $MIRROR_URL"'/$arch/$repo' >> ${CHROOT_DIR}/etc/pacman.d/mirrorlist
 
-# add my repo to install kernel and firmware
-echo '[nuvole-arch]' >> ${CHROOT_DIR}/etc/pacman.conf
-echo "Server = https://github.com/right-0903/my_arch_auto_pack/releases/download/aarch64-packages" >> ${CHROOT_DIR}/etc/pacman.conf
+# setting my arch repo databases if they exist
+local URL='https://github.com/right-0903/my_arch_auto_pack/releases/download/aarch64-packages'
+local PACKAGE_DB='nuvole-arch.db.tar.gz'
+
+# use '-L' because github will redirect it, and we check DB only.
+http_code=$(curl -L -o /dev/null -w "%{http_code}" "$URL/$PACKAGE_DB")
+if [ "$http_code" -eq 200 ]; then
+    # add my repo to install kernel and firmware
+    echo '[nuvole-arch]' >> ${CHROOT_DIR}/etc/pacman.conf
+    echo "Server = https://github.com/right-0903/my_arch_auto_pack/releases/download/aarch64-packages" >> ${CHROOT_DIR}/etc/pacman.conf
+fi
 
 # disable deubg
 sed -i 's/^\(OPTIONS.*\)\(debug\)\(.*)$\)/\1!\2\3/p' $CHROOT_DIR/etc/makepkg.conf
