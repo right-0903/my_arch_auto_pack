@@ -45,10 +45,9 @@ sudo mount --bind ./root.x86_64/ ./root.x86_64/
 # initialize pacman
 sudo arch-chroot ./root.x86_64/ sh -c 'pacman-key --init && pacman-key --populate'
 
-
 # setting my arch repo databases if they exist
-local URL='https://github.com/right-0903/my_arch_auto_pack/releases/download/packages'
-local PACKAGE_DB='nuvole-arch'
+URL='https://github.com/right-0903/my_arch_auto_pack/releases/download/packages'
+PACKAGE_DB='nuvole-arch'
 
 # use '-L' because github will redirect it, and we check DB only.
 http_code=$(curl -L -o /dev/null -w "%{http_code}" "$URL/$PACKAGE_DB.db.tar.gz")
@@ -56,8 +55,9 @@ if [ "$http_code" -eq 200 ]; then
     # use dependnecies built before
     sudo sh -c "echo [$PACKAGE_DB] >> ./root.x86_64/etc/pacman.conf"
     sudo sh -c "echo 'Server = $URL' >> ./root.x86_64/etc/pacman.conf"
+else
+    echo "repo can't be added, http code is $http_code"
 fi
-
 
 # trust key
 sudo install -m 444 "$GITHUB_WORKSPACE/keys/CA909D46CD1890BE.asc" './root.x86_64/root'

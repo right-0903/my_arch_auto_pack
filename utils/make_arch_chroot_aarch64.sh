@@ -46,8 +46,8 @@ sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 4/' ${CHROOT_DIR}/etc/pacma
 echo "Server = $MIRROR_URL"'/$arch/$repo' >> ${CHROOT_DIR}/etc/pacman.d/mirrorlist
 
 # setting my arch repo databases if they exist
-local URL='https://github.com/right-0903/my_arch_auto_pack/releases/download/aarch64-packages'
-local PACKAGE_DB='nuvole-arch'
+URL='https://github.com/right-0903/my_arch_auto_pack/releases/download/aarch64-packages'
+PACKAGE_DB='nuvole-arch'
 
 # use '-L' because github will redirect it, and we check DB only.
 http_code=$(curl -L -o /dev/null -w "%{http_code}" "$URL/$PACKAGE_DB.db.tar.gz")
@@ -55,6 +55,8 @@ if [ "$http_code" -eq 200 ]; then
     # add my repo to install kernel and firmware
     echo "[$PACKAGE_DB]" >> ${CHROOT_DIR}/etc/pacman.conf
     echo "Server = $URL" >> ${CHROOT_DIR}/etc/pacman.conf
+else
+    echo "repo can't be added, http code is $http_code"
 fi
 
 # disable deubg
