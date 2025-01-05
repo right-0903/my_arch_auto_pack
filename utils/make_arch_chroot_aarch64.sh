@@ -47,14 +47,14 @@ echo "Server = $MIRROR_URL"'/$arch/$repo' >> ${CHROOT_DIR}/etc/pacman.d/mirrorli
 
 # setting my arch repo databases if they exist
 local URL='https://github.com/right-0903/my_arch_auto_pack/releases/download/aarch64-packages'
-local PACKAGE_DB='nuvole-arch.db.tar.gz'
+local PACKAGE_DB='nuvole-arch'
 
 # use '-L' because github will redirect it, and we check DB only.
-http_code=$(curl -L -o /dev/null -w "%{http_code}" "$URL/$PACKAGE_DB")
+http_code=$(curl -L -o /dev/null -w "%{http_code}" "$URL/$PACKAGE_DB.db.tar.gz")
 if [ "$http_code" -eq 200 ]; then
     # add my repo to install kernel and firmware
-    echo '[nuvole-arch]' >> ${CHROOT_DIR}/etc/pacman.conf
-    echo "Server = https://github.com/right-0903/my_arch_auto_pack/releases/download/aarch64-packages" >> ${CHROOT_DIR}/etc/pacman.conf
+    echo "[$PACKAGE_DB]" >> ${CHROOT_DIR}/etc/pacman.conf
+    echo "Server = $URL" >> ${CHROOT_DIR}/etc/pacman.conf
 fi
 
 # disable deubg
