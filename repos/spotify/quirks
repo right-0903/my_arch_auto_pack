@@ -10,7 +10,7 @@ after() {
     echo "quirks after"
     for ((i = 1; i <= 5; i++))
     do
-        if [ ! -f ./*zst ]; then
+        if [ ! -f ./*.pkg.tar.* ]; then
             makepkg -s --noconfirm
         fi
     done
