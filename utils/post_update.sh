@@ -23,6 +23,7 @@ git_push() {
     local length=${#package_list[@]}
     for (( i=0; i<$length; i++ )); do
         if [[ "$ARCH" == 'aarch64' ]] && [ ! -f $GITHUB_WORKSPACE/repos/${package_list[$i]}/aarch64 ]; then
+            git restore "${package_list[$i]}/$VER" || true
             continue
         fi
 
