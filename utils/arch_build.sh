@@ -66,9 +66,9 @@ main() {
     # curl -L --output $PACKAGE_DB "(echo $URL/$PACKAGE_DB | sed 's/\.tar\.gz$//')"
     # or we can check if repo is valid before upload it
 
-    # FIXME: --new for only add packages that are not already in the databases, not --sign for now
-    # This causes package info unchanged, new package may not same as the old, like size
-    repo-add --new "$PACKAGE_DB" *.pkg.tar.*
+    # don't use --new, it only adds packages that are not already in the databases, not --sign for now
+    # This causes package info unchanged, new package may not be same as the old, like size
+    repo-add "$PACKAGE_DB" *.pkg.tar.*
 
     # repo-remove when packages in repos are removed
     local remove_list=$(cat /home/nuvole/repos/remove_list)
