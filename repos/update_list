@@ -1,11 +1,8 @@
 cantata-qt6 -
+cloudflare-warp-bin -
 fcitx5-pinyin-custom-pinyin-dictionary -
-hid-ite8291r3-dkms-git -
 kc57-drivers-dkms -
-linux-gaokun3 -
+linux-firmware-gaokun3 -
 looking-glass -
-pamac-aur -
-resources -
-spotify -
-tuxedo-control-center-bin -
-vscodium-bin -
+tor-browser-bin '14.0.4'-1
+vscodium-bin 1.96.3.25013-1
