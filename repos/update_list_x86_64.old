@@ -1,1 +1,11 @@
-succeed	tor-browser-bin	'14.0.4'-1
+succeed	cantata-qt6	-
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
+succeed	hid-ite8291r3-dkms-git	-
+succeed	kc57-drivers-dkms	-
+failed	linux-gaokun3	-
+succeed	looking-glass	-
+failed	pamac-aur	-
+succeed	resources	-
+succeed	spotify	-
+succeed	tuxedo-control-center-bin	-
+succeed	vscodium-bin	-
