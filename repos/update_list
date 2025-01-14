@@ -1,9 +1,5 @@
 cantata-qt6 3.3.0-1
 fcitx5-pinyin-custom-pinyin-dictionary 20250101-1
-hid-ite8291r3-dkms-git r14.7ad5991-2
-kc57-drivers-dkms 4.11.7-1
-looking-glass B6-9
-resources 1.6.0-1
+linux-firmware-gaokun3 1.10.0-2
 spotify '1.2.53.440'-1
-tuxedo-control-center-bin 2.1.16-1
-vscodium-bin 1.96.3.25013-1
+tor-browser-bin '14.0.4'-1
