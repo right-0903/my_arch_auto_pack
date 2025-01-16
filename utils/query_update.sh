@@ -57,6 +57,12 @@ main() {
 check_update() {
     local package="$1"
 
+    if [[ "$ARCH" == 'aarch64' ]]; then
+        if [ ! -f "$GITHUB_WORKSPACE/repos/$package/aarch64" ]; then
+            return 0
+        fi
+    fi
+
     # github
     # url: https://github.com/username/repo-name
     # raw: https://raw.githubusercontent.com/username/repo-name/trunk/path-to/PKGBUILD
