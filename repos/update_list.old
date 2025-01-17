@@ -1,6 +1,4 @@
-kc57-drivers-dkms 4.12.0-1
-libpamac-aur -
-resources -
-spotify-adblock -
-spotify -
-tor-browser-bin '14.0.4'-1
+libpamac-aur 11.7.0-2
+linux-firmware-gaokun3 1.10.0-2
+spotify-adblock 1.0.3-2
+spotify '1.2.53.440'-1
