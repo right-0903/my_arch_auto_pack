@@ -1,1 +1,2 @@
-succeed	docker-desktop	4.38.0-1
+failed	linux-gaokun3	6.13.y-1
+succeed	looking-glass	B6-10
