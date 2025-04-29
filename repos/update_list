@@ -1,1 +1,2 @@
-vscodium-bin 1.99.32846-1
+docker-desktop 4.41.0-2
+zsh-theme-powerlevel10k 1.20.15  ## see P9K_VERSION in internal/p10k.zsh-1
