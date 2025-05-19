@@ -1,3 +1,2 @@
-succeed	kc57-drivers-dkms	4.13.1-1
+succeed	kc57-drivers-dkms	-1
 failed	manjaro-zsh-config	0.26-2
-succeed	vscodium-bin	1.100.23258-1
