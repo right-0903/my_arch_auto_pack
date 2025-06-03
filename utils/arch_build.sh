@@ -112,10 +112,12 @@ post() {
 
 update_repo() {
     if [[ -f "$1/my_repo" ]]; then
-        # only aur use this now
+        # only aur uses this now
         local AUR_KEY_PATH='/home/nuvole/aur_key'
         GIT_SSH_COMMAND="ssh -i $AUR_KEY_PATH -o StrictHostKeyChecking=no" git clone "ssh://aur@aur.archlinux.org/$1.git" 'my_repo'
         cd 'my_repo'
+        # reset pkgrel
+        sed -E 's/^(pkgrel=)[0-9]+$/\11/' -i PKGBUILD
         makepkg --printsrcinfo > .SRCINFO
         git config user.name "nuvole"
         git config user.email "github-actions[bot]@users.noreply.github.com"
