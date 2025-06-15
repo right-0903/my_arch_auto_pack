@@ -1,6 +1,3 @@
-btrfs-assistant -
-cantata-qt6 -
-linux-firmware-gaokun3 -
-pamac-aur -
-timeshift-autosnap -
-wemeet-bin -
+btrfs-assistant 2.2-1
+timeshift-autosnap 0.9-1
+tuxedo-control-center-bin 2.1.16-1
