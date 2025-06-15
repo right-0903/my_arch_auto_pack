@@ -1,4 +1,6 @@
-succeed	btrfs-assistant	2.1.1-1
-succeed	timeshift-autosnap	0.9-1
-succeed	vscodium-bin	1.101.03933-1
-succeed	wemeet-bin	3.19.2.400-3
+succeed	btrfs-assistant	-
+succeed	cantata-qt6	-
+succeed	linux-firmware-gaokun3	-
+failed	pamac-aur	-
+succeed	timeshift-autosnap	-
+succeed	wemeet-bin	-
