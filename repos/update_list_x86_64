@@ -1,1 +1,6 @@
-succeed	docker-desktop	4.43.1-1
+succeed	pamac-aur	-
+succeed	spotify	-
+succeed	timeshift-autosnap	-
+succeed	tor-browser-bin	-
+succeed	tuxedo-control-center-bin	2.1.17-1
+succeed	vscodium-bin	-
