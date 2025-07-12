@@ -1,4 +1,2 @@
-succeed	cantata-qt6	-
-succeed	linux-firmware-gaokun3	-
-succeed	vscodium-bin	1.102.04606-1
-failed	wemeet-bin	-
+succeed	cantata-qt6	3.3.1-1
+succeed	linux-firmware-gaokun3	1.10.0-3
