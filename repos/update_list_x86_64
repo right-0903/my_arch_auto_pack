@@ -1,6 +1,11 @@
-succeed	btrfs-assistant	-
-succeed	cantata-qt6	-
-succeed	cloudflare-warp-bin	-
-succeed	docker-desktop	-
-succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
-succeed	kc57-drivers-dkms	4.15.1-1
+succeed	hid-ite8291r3-dkms-git	-
+succeed	kc57-drivers-dkms	-
+failed	libpamac-aur	-
+failed	linux-firmware-gaokun3	-
+failed	linux-gaokun3	-
+failed	looking-glass	-
+failed	pamac-aur	-
+failed	resources	-
+failed	spotify-adblock	-
+failed	timeshift-autosnap	-
+failed	tor-browser-bin	-
