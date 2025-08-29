@@ -1,1 +1,9 @@
-succeed	docker-desktop	4.45.0-1
+succeed	btrfs-assistant	-
+succeed	cloudflare-warp-bin	-
+succeed	kc57-drivers-dkms	4.15.4-1
+succeed	libpamac-aur	-
+succeed	looking-glass	-
+succeed	pamac-aur	-
+succeed	resources	-
+succeed	spotify-adblock	-
+succeed	timeshift-autosnap	-
