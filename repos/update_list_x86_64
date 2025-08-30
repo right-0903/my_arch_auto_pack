@@ -1,9 +1,8 @@
-succeed	btrfs-assistant	-
-succeed	cloudflare-warp-bin	-
-succeed	kc57-drivers-dkms	4.15.4-1
-succeed	libpamac-aur	-
-succeed	looking-glass	-
-succeed	pamac-aur	-
-succeed	resources	-
-succeed	spotify-adblock	-
-succeed	timeshift-autosnap	-
+succeed	btrfs-assistant	2.2-1
+succeed	cloudflare-warp-bin	2025.6.1335-1
+succeed	libpamac-aur	11.7.3-4
+succeed	looking-glass	B7-4
+succeed	pamac-aur	11.7.3-3
+succeed	resources	1.6.0-1
+succeed	spotify-adblock	1.0.3-2
+succeed	timeshift-autosnap	0.9-1
