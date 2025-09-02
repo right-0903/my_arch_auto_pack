@@ -1,6 +1,2 @@
-btrfs-assistant -
-fcitx5-pinyin-custom-pinyin-dictionary -
-libpamac-aur -
-timeshift-autosnap -
-vscodium-bin -
-wemeet-bin -
+libpamac-aur 11.7.3-5
+pamac-aur 11.7.3-4
