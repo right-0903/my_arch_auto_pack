@@ -24,7 +24,12 @@ else
 fi
 
 echo 1 > /proc/sys/fs/binfmt_misc/status
-echo ':qemu-aarch64:M::\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\xb7\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-aarch64-static:FP' > /proc/sys/fs/binfmt_misc/register
+# undo registered format and re register
+echo -1 > /proc/sys/fs/binfmt_misc/qemu-aarch64
+# FP -> FPC: add flag C, without it, we would get
+# 'sudo: effective uid is not 0, is /usr/bin/sudo on a file system with the
+# 'nosuid' option set or an NFS file system without root privileges?'
+echo ':qemu-aarch64:M::\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\xb7\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-aarch64-static:FPC' > /proc/sys/fs/binfmt_misc/register
 
 # get into builddir, but root may do not know $GITHUB_WORKSPACE
 # I use s series of sudo here rather than set absolute path for $GITHUB_WORKSPACE
