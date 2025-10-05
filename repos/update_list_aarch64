@@ -1,1 +1,6 @@
-succeed	vscodium-bin	1.104.36664-1
+failed	btrfs-assistant	-
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
+succeed	libpamac-aur	-
+succeed	linux-firmware-gaokun3	-
+succeed	pamac-aur	-
+failed	wemeet-bin	-
