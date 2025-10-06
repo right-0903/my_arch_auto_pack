@@ -23,7 +23,8 @@ cd "$GITHUB_WORKSPACE/builddir"
 
 # get archlinux-bootstrap and extract
 curl http://mirror.rackspace.com/archlinux/iso/latest/archlinux-bootstrap-x86_64.tar.zst -o archlinux-bootstrap-x86_64.tar.zst
-tar xf ./archlinux-bootstrap-x86_64.tar.zst --numeric-owner
+sudo sh -c 'tar xf ./archlinux-bootstrap-x86_64.tar.zst --numeric-owner'
+sudo chown $(whoami):$(whoami) -R ./root.x86_64
 
 # config pacman
 echo 'Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch' >> ./root.x86_64/etc/pacman.d/mirrorlist
