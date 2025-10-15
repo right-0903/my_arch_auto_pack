@@ -1,3 +1,4 @@
-succeed	cantata-qt6	-
-succeed	pamac-aur	-
-succeed	timeshift-autosnap	-
+succeed	cantata-qt6	3.3.1-1
+succeed	pamac-aur	11.7.3-5
+succeed	timeshift-autosnap	0.9-1
+succeed	vscodium-bin	1.105.06922-1
