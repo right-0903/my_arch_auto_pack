@@ -1,1 +1,9 @@
-succeed	vscodium-bin	1.105.06922-1
+failed	btrfs-assistant	-
+succeed	cloudflare-warp-bin	-
+succeed	kc57-drivers-dkms	-
+failed	linux-gaokun3	-
+succeed	pamac-aur	-
+succeed	resources	-
+succeed	spotify-adblock	-
+succeed	vscodium-bin	1.105.16954-1
+succeed	wemeet-bin	-

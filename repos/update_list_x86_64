@@ -1,9 +1,7 @@
-failed	btrfs-assistant	-
-succeed	cloudflare-warp-bin	-
-succeed	kc57-drivers-dkms	-
-failed	linux-gaokun3	-
-succeed	pamac-aur	-
-succeed	resources	-
-succeed	spotify-adblock	-
-succeed	vscodium-bin	1.105.16954-1
-succeed	wemeet-bin	-
+succeed	cloudflare-warp-bin	2025.8.779-1
+succeed	kc57-drivers-dkms	4.17.0-1
+succeed	pamac-aur	11.7.3-5
+succeed	resources	1.6.0-1
+succeed	spotify-adblock	1.0.3-2
+succeed	vscodium-bin	1.105.16999-1
+succeed	wemeet-bin	3.26.10.400-3
