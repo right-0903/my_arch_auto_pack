@@ -1,1 +1,4 @@
-succeed	cantata-qt6	3.3.1-1
+failed	libpamac-aur	-
+failed	timeshift-autosnap	-
+succeed	vscodium-bin	-
+failed	wemeet-bin	-
