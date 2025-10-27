@@ -1,1 +1,14 @@
-succeed	docker-desktop	4.49.0-2
+failed	btrfs-assistant	-
+succeed	cloudflare-warp-bin	-
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
+failed	hid-ite8291r3-dkms-git	-
+succeed	kc57-drivers-dkms	-
+failed	libpamac-aur	-
+failed	linux-gaokun3	-
+failed	looking-glass	-
+failed	resources	-
+failed	spotify	-
+failed	timeshift-autosnap	-
+failed	tor-browser-bin	-
+failed	tuxedo-control-center-bin	-
+failed	wemeet-bin	-
