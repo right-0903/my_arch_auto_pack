@@ -1,4 +1,2 @@
-failed	libpamac-aur	-
-failed	timeshift-autosnap	-
-succeed	vscodium-bin	-
-failed	wemeet-bin	-
+succeed	vscodium-bin	1.105.17075-1
+succeed	wemeet-bin	3.26.10.400-4
