@@ -1,5 +1,1 @@
-failed	btrfs-assistant	-
-failed	cantata-qt6	-
-succeed	timeshift-autosnap	0.10.0-1
-succeed	vscodium-bin	-
-succeed	wemeet-bin	-
+succeed	vscodium-bin	1.105.17075-1
