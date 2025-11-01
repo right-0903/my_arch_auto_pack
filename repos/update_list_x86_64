@@ -1,3 +1,4 @@
-succeed	timeshift-autosnap	0.10.0-1
-succeed	tuxedo-control-center-bin	2.1.20-1
-succeed	vscodium-bin	1.105.17075-1
+failed	linux-firmware-gaokun3	-
+succeed	looking-glass	-
+succeed	vscodium-bin	-
+succeed	wemeet-bin	-
