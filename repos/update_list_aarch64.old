@@ -1,1 +1,3 @@
-succeed	wemeet-bin	3.26.10.400-4
+failed	cantata-qt6	-
+failed	linux-firmware-gaokun3	-
+succeed	pamac-aur	-
