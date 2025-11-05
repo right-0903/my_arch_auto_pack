@@ -1,3 +1,1 @@
-failed	cantata-qt6	-
-failed	linux-firmware-gaokun3	-
-succeed	pamac-aur	-
+succeed	pamac-aur	11.7.3-5
