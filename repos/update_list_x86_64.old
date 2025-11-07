@@ -1,4 +1,7 @@
-failed	btrfs-assistant	-
-succeed	cloudflare-warp-bin	2025.8.779-1
-succeed	pamac-aur	11.7.3-5
-succeed	vscodium-bin	1.105.17075-1
+succeed	docker-desktop	4.50.0-1
+succeed	kc57-drivers-dkms	-
+succeed	libpamac-aur	-
+failed	linux-firmware-gaokun3	-
+succeed	spotify	-
+succeed	tuxedo-control-center-bin	-
+succeed	wemeet-bin	-
