@@ -1,12 +1,4 @@
 btrfs-assistant -
-cloudflare-warp-bin -
-fcitx5-pinyin-custom-pinyin-dictionary -
-hid-ite8291r3-dkms-git -
-looking-glass -
-pamac-aur -
-resources -
-spotify-adblock -
-timeshift-autosnap -
-tor-browser-bin -
-vscodium-bin -
+cantata-qt6 -
+pamac-aur 11.7.3-5
 wemeet-bin 3.26.10.401-1

@@ -1,1 +1,4 @@
-succeed	pamac-aur	11.7.3-5
+failed	btrfs-assistant	-
+failed	cantata-qt6	-
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
+succeed	pamac-aur	-
