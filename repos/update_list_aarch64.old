@@ -1,4 +1,4 @@
 failed	btrfs-assistant	-
 failed	cantata-qt6	-
-succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
-succeed	pamac-aur	-
+succeed	pamac-aur	11.7.3-5
+succeed	wemeet-bin	3.26.10.401-1
