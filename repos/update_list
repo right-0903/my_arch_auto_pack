@@ -1,4 +1,15 @@
 btrfs-assistant -
-cantata-qt6 -
+cloudflare-warp-bin 2025.8.779-1
+fcitx5-pinyin-custom-pinyin-dictionary 20250101-1
+hid-ite8291r3-dkms-git r14.7ad5991-2
+kc57-drivers-dkms 4.18.0-1
+libpamac-aur 11.7.3-5
+linux-firmware-gaokun3 -
+linux-gaokun3 -
 pamac-aur 11.7.3-5
-wemeet-bin 3.26.10.401-1
+resources 1.6.0-1
+spotify-adblock 1.0.3-2
+spotify '1.2.74.477'-2
+tor-browser-bin '15.0'-1
+tuxedo-control-center-bin 2.1.20-1
+vscodium-bin 1.105.17075-1
