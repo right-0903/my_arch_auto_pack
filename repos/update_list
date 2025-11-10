@@ -1,7 +1,10 @@
-libpamac-aur -
-looking-glass B7-5
-pamac-aur -
-resources -
-spotify-adblock -
-timeshift-autosnap 0.10.0-1
-vscodium-bin -
+btrfs-assistant -
+hid-ite8291r3-dkms-git -
+linux-firmware-gaokun3 -
+linux-gaokun3 -
+looking-glass -
+resources 1.6.0-1
+spotify-adblock 1.0.3-2
+tuxedo-control-center-bin -
+vscodium-bin 1.105.17075-1
+wemeet-bin -
