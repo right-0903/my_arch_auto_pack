@@ -1,6 +1,4 @@
-cloudflare-warp-bin -
-docker-desktop -
-kc57-drivers-dkms -
+btrfs-assistant -
+fcitx5-pinyin-custom-pinyin-dictionary -
 linux-firmware-gaokun3 -
-looking-glass B7-5
-pamac-aur 11.7.3-5
+pamac-aur -
