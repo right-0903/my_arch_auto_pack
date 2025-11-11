@@ -1,7 +1,10 @@
-succeed	libpamac-aur	-
-succeed	looking-glass	B7-5
-succeed	pamac-aur	-
-succeed	resources	-
-succeed	spotify-adblock	-
-succeed	timeshift-autosnap	0.10.0-1
-succeed	vscodium-bin	-
+failed	btrfs-assistant	-
+succeed	hid-ite8291r3-dkms-git	-
+failed	linux-firmware-gaokun3	-
+failed	linux-gaokun3	-
+succeed	looking-glass	-
+succeed	resources	1.6.0-1
+succeed	spotify-adblock	1.0.3-2
+succeed	tuxedo-control-center-bin	-
+succeed	vscodium-bin	1.105.17075-1
+succeed	wemeet-bin	-
