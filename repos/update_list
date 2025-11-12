@@ -1,4 +1,11 @@
-btrfs-assistant -
+cantata-qt6 -
+cloudflare-warp-bin 2025.8.779-1
 fcitx5-pinyin-custom-pinyin-dictionary -
-linux-firmware-gaokun3 -
-pamac-aur -
+hid-ite8291r3-dkms-git r14.7ad5991-2
+libpamac-aur 11.7.3-5
+looking-glass -
+spotify -
+timeshift-autosnap -
+tuxedo-control-center-bin 2.1.20-1
+vscodium-bin -
+wemeet-bin 3.26.10.401-1

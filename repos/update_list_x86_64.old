@@ -1,10 +1,6 @@
-failed	btrfs-assistant	-
-succeed	hid-ite8291r3-dkms-git	-
+succeed	cloudflare-warp-bin	-
+succeed	docker-desktop	-
+succeed	kc57-drivers-dkms	-
 failed	linux-firmware-gaokun3	-
-failed	linux-gaokun3	-
-succeed	looking-glass	-
-succeed	resources	1.6.0-1
-succeed	spotify-adblock	1.0.3-2
-succeed	tuxedo-control-center-bin	-
-succeed	vscodium-bin	1.105.17075-1
-succeed	wemeet-bin	-
+succeed	looking-glass	B7-5
+succeed	pamac-aur	11.7.3-5
