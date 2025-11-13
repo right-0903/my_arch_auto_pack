@@ -1,6 +1,11 @@
-succeed	cloudflare-warp-bin	-
-succeed	docker-desktop	-
-succeed	kc57-drivers-dkms	-
-failed	linux-firmware-gaokun3	-
-succeed	looking-glass	B7-5
-succeed	pamac-aur	11.7.3-5
+failed	cantata-qt6	-
+succeed	cloudflare-warp-bin	2025.8.779-1
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
+succeed	hid-ite8291r3-dkms-git	r14.7ad5991-2
+succeed	libpamac-aur	11.7.3-5
+succeed	looking-glass	-
+succeed	spotify	-
+succeed	timeshift-autosnap	-
+succeed	tuxedo-control-center-bin	2.1.20-1
+succeed	vscodium-bin	-
+succeed	wemeet-bin	3.26.10.401-1
