@@ -1,6 +1,8 @@
-cantata-qt6 -
-fcitx5-pinyin-custom-pinyin-dictionary 20250101-1
+cloudflare-warp-bin -
+fcitx5-pinyin-custom-pinyin-dictionary -
+kc57-drivers-dkms 4.18.0-1
 libpamac-aur 11.7.3-5
-pamac-aur 11.7.3-5
-timeshift-autosnap -
-wemeet-bin -
+looking-glass B7-5
+resources 1.6.0-1
+spotify -
+vscodium-bin -
