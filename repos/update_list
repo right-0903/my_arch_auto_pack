@@ -1,6 +1,11 @@
-fcitx5-pinyin-custom-pinyin-dictionary -
-libpamac-aur -
+btrfs-assistant -
+cantata-qt6 -
+cloudflare-warp-bin 2025.9.558-1
+docker-desktop -
+hid-ite8291r3-dkms-git r14.7ad5991-2
 linux-firmware-gaokun3 -
-timeshift-autosnap -
-vscodium-bin -
-wemeet-bin -
+looking-glass -
+pamac-aur -
+spotify '1.2.74.477'-2
+timeshift-autosnap 0.10.0-1
+tuxedo-control-center-bin 2.1.20-1

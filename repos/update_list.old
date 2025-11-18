@@ -1,8 +1,6 @@
-cloudflare-warp-bin -
 fcitx5-pinyin-custom-pinyin-dictionary -
-kc57-drivers-dkms 4.18.0-1
-libpamac-aur 11.7.3-5
-looking-glass B7-5
-resources 1.6.0-1
-spotify -
+libpamac-aur -
+linux-firmware-gaokun3 -
+timeshift-autosnap -
 vscodium-bin -
+wemeet-bin -
