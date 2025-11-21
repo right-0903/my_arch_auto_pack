@@ -1,10 +1,7 @@
 failed	cantata-qt6	-
-succeed	docker-desktop	4.51.0-1
-succeed	hid-ite8291r3-dkms-git	-
-succeed	libpamac-aur	-
+succeed	cloudflare-warp-bin	-
+succeed	hid-ite8291r3-dkms-git	r14.7ad5991-2
+succeed	libpamac-aur	11.7.3-5
 failed	linux-firmware-gaokun3	-
-succeed	resources	-
-succeed	spotify-adblock	-
-succeed	spotify	-
-succeed	timeshift-autosnap	0.10.0-1
-succeed	tuxedo-control-center-bin	-
+failed	linux-gaokun3	-
+succeed	spotify-adblock	1.0.3-2
