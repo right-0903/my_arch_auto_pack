@@ -1,15 +1,5 @@
 btrfs-assistant -
-cantata-qt6 -
-docker-desktop -
-fcitx5-pinyin-custom-pinyin-dictionary 20250101-1
-hid-ite8291r3-dkms-git -
-kc57-drivers-dkms -
-libpamac-aur -
 linux-firmware-gaokun3 -
-linux-gaokun3 -
-looking-glass B7-5
-resources 1.6.0-1
-spotify-adblock -
 timeshift-autosnap -
-tuxedo-control-center-bin 2.1.20-1
-vscodium-bin 1.106.27818-1
+vscodium-bin -
+wemeet-bin 3.26.10.401-1
