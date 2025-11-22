@@ -1,5 +1,13 @@
-btrfs-assistant -
+cantata-qt6 -
+cloudflare-warp-bin 2025.9.558-1
+docker-desktop 4.51.0-1
+fcitx5-pinyin-custom-pinyin-dictionary -
+libpamac-aur 11.7.3-5
 linux-firmware-gaokun3 -
-timeshift-autosnap -
+linux-gaokun3 -
+pamac-aur 11.7.3-5
+spotify '1.2.74.477'-2
+tor-browser-bin '15.0.2'-1
+tuxedo-control-center-bin -
 vscodium-bin -
 wemeet-bin 3.26.10.401-1
