@@ -1,6 +1,5 @@
 failed	btrfs-assistant	-
-succeed	libpamac-aur	11.7.3-5
 failed	linux-firmware-gaokun3	-
-succeed	pamac-aur	-
-succeed	timeshift-autosnap	0.10.0-1
-succeed	vscodium-bin	1.105.17075-1
+succeed	timeshift-autosnap	-
+succeed	vscodium-bin	-
+succeed	wemeet-bin	3.26.10.401-1
