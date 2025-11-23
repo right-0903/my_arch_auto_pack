@@ -1,5 +1,2 @@
-failed	btrfs-assistant	-
-failed	linux-firmware-gaokun3	-
-succeed	timeshift-autosnap	-
-succeed	vscodium-bin	-
-succeed	wemeet-bin	3.26.10.401-1
+failed	cantata-qt6	-
+succeed	libpamac-aur	-

@@ -1,2 +1,2 @@
-failed	cantata-qt6	-
-succeed	libpamac-aur	-
+succeed	pamac-aur	11.7.3-5
+succeed	timeshift-autosnap	0.10.0-1
