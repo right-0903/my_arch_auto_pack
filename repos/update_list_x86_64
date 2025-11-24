@@ -1,7 +1,4 @@
-succeed	fcitx5-pinyin-custom-pinyin-dictionary	20250101-1
-succeed	hid-ite8291r3-dkms-git	r14.7ad5991-2
-succeed	kc57-drivers-dkms	4.18.0-1
-succeed	spotify-adblock	1.0.3-2
-succeed	timeshift-autosnap	0.10.0-1
-succeed	tor-browser-bin	-
-succeed	vscodium-bin	1.106.27818-2
+succeed	docker-desktop	4.52.0-1
+succeed	spotify	'1.2.74.477'-3
+succeed	tor-browser-bin	'15.0.2'-1
+succeed	tuxedo-control-center-bin	2.1.20-1
