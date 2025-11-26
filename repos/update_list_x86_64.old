@@ -1,4 +1,9 @@
-succeed	docker-desktop	4.52.0-1
-succeed	spotify	'1.2.74.477'-3
-succeed	tor-browser-bin	'15.0.2'-1
-succeed	tuxedo-control-center-bin	2.1.20-1
+failed	btrfs-assistant	-
+failed	cantata-qt6	-
+succeed	cloudflare-warp-bin	-
+succeed	hid-ite8291r3-dkms-git	-
+succeed	kc57-drivers-dkms	-
+succeed	libpamac-aur	-
+succeed	resources	-
+succeed	spotify-adblock	-
+succeed	spotify	'1.2.77.358'-1
