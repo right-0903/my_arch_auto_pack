@@ -1,6 +1,9 @@
-succeed	docker-desktop	-
-succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
-succeed	hid-ite8291r3-dkms-git	-
-succeed	resources	1.6.0-1
-succeed	tuxedo-control-center-bin	2.1.21-1
-succeed	vscodium-bin	1.106.37943-1
+failed	btrfs-assistant	-
+failed	cantata-qt6	-
+succeed	docker-desktop	4.52.0-1
+succeed	pamac-aur	-
+succeed	timeshift-autosnap	-
+succeed	tor-browser-bin	-
+succeed	tuxedo-control-center-bin	-
+succeed	vscodium-bin	-
+succeed	wemeet-bin	-
