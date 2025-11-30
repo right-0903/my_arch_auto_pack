@@ -1,12 +1,2 @@
-cantata-qt6 -
-cloudflare-warp-bin -
-docker-desktop -
-fcitx5-pinyin-custom-pinyin-dictionary -
-hid-ite8291r3-dkms-git -
-kc57-drivers-dkms -
 libpamac-aur -
-linux-gaokun3 -
-resources -
-timeshift-autosnap 0.10.0-1
-tuxedo-control-center-bin -
-vscodium-bin -
+wemeet-bin -
