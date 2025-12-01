@@ -1,5 +1,12 @@
-succeed	fcitx5-pinyin-custom-pinyin-dictionary	20250101-1
-succeed	hid-ite8291r3-dkms-git	r14.7ad5991-2
-succeed	pamac-aur	11.7.3-5
-succeed	tuxedo-control-center-bin	2.1.21-1
-succeed	vscodium-bin	1.106.37943-1
+failed	cantata-qt6	-
+succeed	cloudflare-warp-bin	-
+succeed	docker-desktop	-
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
+succeed	hid-ite8291r3-dkms-git	-
+succeed	kc57-drivers-dkms	-
+succeed	libpamac-aur	-
+failed	linux-gaokun3	-
+succeed	resources	-
+succeed	timeshift-autosnap	0.10.0-1
+succeed	tuxedo-control-center-bin	-
+succeed	vscodium-bin	-
