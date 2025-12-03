@@ -1,3 +1,2 @@
-succeed	libpamac-aur	11.7.4-1
-succeed	pamac-aur	11.7.4-1
-succeed	wemeet-bin	3.26.10.401-1
+failed	cantata-qt6	-
+succeed	wemeet-bin	-

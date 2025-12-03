@@ -1,10 +1,2 @@
 cantata-qt6 -
-fcitx5-pinyin-custom-pinyin-dictionary 20250101-1
-hid-ite8291r3-dkms-git -
-kc57-drivers-dkms -
-libpamac-aur -
-linux-gaokun3 -
-pamac-aur -
-resources 1.6.0-1
-timeshift-autosnap -
-tor-browser-bin -
+wemeet-bin -
