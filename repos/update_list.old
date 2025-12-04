@@ -1,2 +1,11 @@
-cantata-qt6 -
-wemeet-bin -
+btrfs-assistant -
+fcitx5-pinyin-custom-pinyin-dictionary -
+hid-ite8291r3-dkms-git r14.7ad5991-2
+kc57-drivers-dkms 4.18.1-1
+linux-firmware-gaokun3 -
+linux-gaokun3 -
+resources -
+spotify-adblock -
+tor-browser-bin '15.0.2'-1
+tuxedo-control-center-bin -
+vscodium-bin -
