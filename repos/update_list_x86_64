@@ -1,6 +1,8 @@
 failed	btrfs-assistant	-
-succeed	docker-desktop	4.54.0-1
-succeed	fcitx5-pinyin-custom-pinyin-dictionary	20250101-1
-succeed	libpamac-aur	11.7.4-1
-succeed	timeshift-autosnap	0.10.0-1
-succeed	tuxedo-control-center-bin	2.1.21-1
+failed	cantata-qt6	-
+succeed	cloudflare-warp-bin	-
+succeed	libpamac-aur	-
+failed	linux-firmware-gaokun3	-
+failed	linux-gaokun3	-
+succeed	resources	1.6.0-1
+succeed	spotify-adblock	1.0.3-2
