@@ -1,5 +1,6 @@
-btrfs-assistant -
-cantata-qt6 -
-libpamac-aur -
-vscodium-bin -
-wemeet-bin -
+cloudflare-warp-bin 2025.9.558-1
+fcitx5-pinyin-custom-pinyin-dictionary -
+pamac-aur 11.7.4-1
+resources -
+timeshift-autosnap -
+wemeet-bin 3.26.10.401-1
