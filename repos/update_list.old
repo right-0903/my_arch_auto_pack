@@ -1,3 +1,11 @@
-fcitx5-pinyin-custom-pinyin-dictionary -
+btrfs-assistant -
+cantata-qt6 -
+cloudflare-warp-bin -
+fcitx5-pinyin-custom-pinyin-dictionary 20250101-1
+hid-ite8291r3-dkms-git -
+kc57-drivers-dkms -
+looking-glass -
+spotify-adblock -
+timeshift-autosnap 0.10.0-1
 vscodium-bin 1.106.37943-1
-wemeet-bin 3.26.10.401-1
+wemeet-bin -

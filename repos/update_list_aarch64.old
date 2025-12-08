@@ -1,5 +1,3 @@
-failed	btrfs-assistant	-
-failed	cantata-qt6	-
-succeed	libpamac-aur	-
-succeed	vscodium-bin	-
-succeed	wemeet-bin	-
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
+succeed	vscodium-bin	1.106.37943-1
+succeed	wemeet-bin	3.26.10.401-1
