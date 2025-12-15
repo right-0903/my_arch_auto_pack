@@ -1,4 +1,9 @@
 failed	btrfs-assistant	-
 failed	cantata-qt6	-
-succeed	fcitx5-pinyin-custom-pinyin-dictionary	20250101-1
-succeed	libpamac-aur	11.7.4-1
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
+succeed	libpamac-aur	-
+failed	linux-firmware-gaokun3	-
+succeed	pamac-aur	-
+succeed	timeshift-autosnap	-
+succeed	vscodium-bin	-
+succeed	wemeet-bin	-
