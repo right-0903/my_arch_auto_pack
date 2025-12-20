@@ -1,8 +1,4 @@
-btrfs-assistant -
-cantata-qt6 -
-cloudflare-warp-bin -
-docker-desktop -
-fcitx5-pinyin-custom-pinyin-dictionary -
-libpamac-aur -
-linux-firmware-gaokun3 -
-tuxedo-control-center-bin 2.1.21-2
+cloudflare-warp-bin 2025.9.558-1
+docker-desktop 4.55.0-1
+fcitx5-pinyin-custom-pinyin-dictionary 20250101-1
+libpamac-aur 11.7.4-2
