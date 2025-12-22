@@ -1,5 +1,4 @@
-failed	btrfs-assistant	-
-succeed	spotify-adblock	-
-succeed	tor-browser-bin	'15.0.3'-1
-succeed	vscodium-bin	1.106.37943-1
-succeed	wemeet-bin	3.26.10.401-1
+failed	linux-firmware-gaokun3	-
+succeed	pamac-aur	-
+succeed	tor-browser-bin	-
+succeed	tuxedo-control-center-bin	-
