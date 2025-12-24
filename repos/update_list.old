@@ -1,4 +1,4 @@
-linux-firmware-gaokun3 -
-pamac-aur -
-tor-browser-bin -
-tuxedo-control-center-bin -
+pamac-aur 11.7.4-2
+spotify-adblock 1.0.3-2
+tor-browser-bin '15.0.3'-1
+tuxedo-control-center-bin 2.1.21-2
