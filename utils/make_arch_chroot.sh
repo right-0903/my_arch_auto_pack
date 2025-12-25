@@ -34,8 +34,12 @@ sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 4/' ./root.x86_64/etc/pacma
 cat ./root.x86_64/etc/pacman.d/mirrorlist | grep -Ei '^Server'
 cat ./root.x86_64/etc/pacman.conf | grep 'ParallelDownloads'
 
-# disable deubg
-sed -i 's/^\(OPTIONS.*\)\(debug\)\(.*)$\)/\1!\2\3/p' ./root.x86_64/etc/makepkg.conf
+if grep -qE '^OPTIONS.*!debug.*$' $CHROOT_DIR/etc/makepkg.conf; then
+    echo "makepkg debug disabled!"
+else
+    # disable deubg
+    sed -i 's/^\(OPTIONS.*\)\(debug\)\(.*)$\)/\1!\2\3/p' $CHROOT_DIR/etc/makepkg.conf
+fi
 
 # avoid pacman issue
 sudo chown root:root -R ./root.x86_64

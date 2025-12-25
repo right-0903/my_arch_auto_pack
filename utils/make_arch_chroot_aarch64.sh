@@ -67,8 +67,12 @@ else
     echo "repo can't be added, http code is $http_code"
 fi
 
-# disable deubg
-sed -i 's/^\(OPTIONS.*\)\(debug\)\(.*)$\)/\1!\2\3/p' $CHROOT_DIR/etc/makepkg.conf
+if grep -qE '^OPTIONS.*!debug.*$' $CHROOT_DIR/etc/makepkg.conf; then
+    echo "makepkg debug disabled!"
+else
+    # disable deubg
+    sed -i 's/^\(OPTIONS.*\)\(debug\)\(.*)$\)/\1!\2\3/p' $CHROOT_DIR/etc/makepkg.conf
+fi
 
 # avoid pacman issue
 sudo chown root:root -R ${CHROOT_DIR}
