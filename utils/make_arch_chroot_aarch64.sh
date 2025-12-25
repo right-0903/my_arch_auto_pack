@@ -50,6 +50,9 @@ cp /usr/bin/qemu-aarch64-static  ${CHROOT_DIR}/usr/bin/qemu-aarch64-static
 sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 4/' ${CHROOT_DIR}/etc/pacman.conf
 echo "Server = $MIRROR_URL"'/$arch/$repo' >> ${CHROOT_DIR}/etc/pacman.d/mirrorlist
 
+# disable sandbox
+sed -i 's/#DisableSandbox/DisableSandbox/' ${CHROOT_DIR}/etc/pacman.conf
+
 # setting my arch repo databases if they exist
 URL='https://github.com/right-0903/my_arch_auto_pack/releases/download/aarch64-packages'
 PACKAGE_DB='nuvole-arch'
