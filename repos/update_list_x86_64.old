@@ -1,4 +1,4 @@
-succeed	pamac-aur	11.7.4-2
-succeed	spotify-adblock	1.0.3-2
-succeed	tor-browser-bin	'15.0.3'-1
-succeed	tuxedo-control-center-bin	2.1.21-2
+failed	btrfs-assistant	-
+succeed	kc57-drivers-dkms	-
+failed	linux-firmware-gaokun3	-
+succeed	vscodium-bin	1.107.18605-1
