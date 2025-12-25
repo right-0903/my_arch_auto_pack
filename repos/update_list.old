@@ -1,4 +1,3 @@
-btrfs-assistant -
-kc57-drivers-dkms -
-linux-firmware-gaokun3 -
-vscodium-bin 1.107.18605-1
+kc57-drivers-dkms 4.18.2-1
+resources -
+vscodium-bin 1.107.18627-1
