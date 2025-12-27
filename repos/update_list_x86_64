@@ -1,8 +1,8 @@
-failed	cantata-qt6	-
-succeed	cloudflare-warp-bin	-
-succeed	fcitx5-pinyin-custom-pinyin-dictionary	-
-failed	linux-firmware-gaokun3	-
-failed	linux-gaokun3	-
-succeed	resources	1.6.0-1
-succeed	spotify-adblock	-
-succeed	tuxedo-control-center-bin	-
+succeed	docker-desktop	-
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	20250101-1
+succeed	kc57-drivers-dkms	-
+succeed	pamac-aur	-
+succeed	spotify-adblock	1.0.3-2
+succeed	timeshift-autosnap	-
+succeed	tuxedo-control-center-bin	2.1.21-2
+succeed	vscodium-bin	-
