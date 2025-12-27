@@ -1,5 +1,1 @@
-succeed	libpamac-aur	11.7.4-2
-succeed	pamac-aur	11.7.4-2
-failed	timeshift-autosnap	0.10.0-1
-succeed	vscodium-bin	1.107.18627-1
-succeed	wemeet-bin	3.26.10.401-1
+succeed	timeshift-autosnap	0.10.0-1
