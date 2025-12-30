@@ -1,4 +1,12 @@
 btrfs-assistant -
-linux-firmware-gaokun3 -
-timeshift-autosnap 0.10.0-1
-vscodium-bin 1.107.18627-1
+cloudflare-warp-bin -
+docker-desktop -
+hid-ite8291r3-dkms-git -
+kc57-drivers-dkms -
+libpamac-aur -
+looking-glass B7-5
+resources 1.6.0-1
+spotify -
+tor-browser-bin -
+vscodium-bin -
+wemeet-bin 3.26.10.401-1
