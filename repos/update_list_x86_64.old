@@ -1,9 +1,1 @@
-succeed	cloudflare-warp-bin	2025.9.558-1
-succeed	docker-desktop	4.55.0-1
-succeed	hid-ite8291r3-dkms-git	r14.7ad5991-2
-succeed	kc57-drivers-dkms	4.18.2-1
-succeed	libpamac-aur	11.7.4-2
-succeed	spotify-adblock	1.0.3-2
-succeed	spotify	'1.2.79.425'-1
-succeed	tor-browser-bin	'15.0.3'-1
-succeed	vscodium-bin	1.107.18627-1
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	20260101-1
