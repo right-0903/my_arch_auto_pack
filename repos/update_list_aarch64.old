@@ -1,4 +1,1 @@
-failed	btrfs-assistant	-
-failed	linux-firmware-gaokun3	-
-succeed	timeshift-autosnap	0.10.0-1
-succeed	vscodium-bin	1.107.18627-1
+succeed	fcitx5-pinyin-custom-pinyin-dictionary	20260101-1
