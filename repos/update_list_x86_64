@@ -1,1 +1,3 @@
-succeed	spotify	'1.2.79.427'-1
+succeed	docker-desktop	4.59.0-1
+succeed	spotify	'1.2.79.427'-2
+succeed	vscodium-bin	1.108.20787-1
