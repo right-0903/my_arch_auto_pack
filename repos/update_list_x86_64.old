@@ -1,3 +1,2 @@
 failed	docker-desktop	4.60.1-1
-succeed	looking-glass	B7-6
-succeed	vscodium-bin	1.109.31074-1
+succeed	tor-browser-bin	'15.0.5'-1
