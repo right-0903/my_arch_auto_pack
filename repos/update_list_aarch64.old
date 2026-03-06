@@ -1,7 +1,1 @@
-failed	btrfs-assistant	-
-failed	cantata-qt6	-
-failed	fcitx5-pinyin-custom-pinyin-dictionary	-
-succeed	libpamac-aur	-
-failed	linux-firmware-gaokun3	-
-failed	vscodium-bin	-
-failed	wemeet-bin	-
+succeed	libpamac-aur	11.7.4-2
