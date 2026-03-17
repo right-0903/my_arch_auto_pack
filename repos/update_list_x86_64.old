@@ -1,3 +1,2 @@
+succeed	docker-desktop	4.64.0-1
 failed	kc57-drivers-dkms	-1
-succeed	spotify	'1.2.84.476'-1
-succeed	vscodium-bin	1.110.11631-1
