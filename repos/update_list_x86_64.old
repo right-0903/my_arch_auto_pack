@@ -1,4 +1,2 @@
-succeed	antigravity	1.21.6-1
-succeed	docker-desktop	4.66.1-1
-succeed	kc57-drivers-dkms	4.21.3-2
+succeed	kc57-drivers-dkms	4.21.3-1
 failed	linux-gaokun3	6.19.y-3
