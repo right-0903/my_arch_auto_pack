@@ -1,10 +1,5 @@
-btrfs-assistant -
-cloudflare-warp-bin -
-docker-desktop -
-hid-ite8291r3-dkms-git -
-libpamac-aur -
-looking-glass -
-resources -
-spotify -
-tor-browser-bin -
-vscodium-bin -
+docker-desktop 4.66.1-1
+hid-ite8291r3-dkms-git r14.7ad5991-2
+spotify '1.2.84.476'-1
+tuxedo-control-center-bin 3.0.1-2
+vscodium-bin 1.112.01907-1
