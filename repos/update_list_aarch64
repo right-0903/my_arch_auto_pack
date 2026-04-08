@@ -1,1 +1,3 @@
-succeed	antigravity	1.21.6-1
+failed	manjaro-zsh-config	-
+succeed	ttf-meslo-nerd-font-powerlevel10k	-
+succeed	zsh-theme-powerlevel10k	-
