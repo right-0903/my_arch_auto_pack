@@ -1,3 +1,2 @@
-failed	manjaro-zsh-config	-
-succeed	ttf-meslo-nerd-font-powerlevel10k	-
-succeed	zsh-theme-powerlevel10k	-
+succeed	ttf-meslo-nerd-font-powerlevel10k	20230403-2
+succeed	zsh-theme-powerlevel10k	1.20.15
