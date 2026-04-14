@@ -1,4 +1,1 @@
-succeed	antigravity	1.22.2-1
-succeed	docker-desktop	4.68.0-1
-succeed	kc57-drivers-dkms	4.22.1-1
-succeed	tor-browser-bin	'15.0.9'-1
+succeed	tuxedo-control-center-bin	3.0.2-2
