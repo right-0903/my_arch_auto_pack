@@ -33,7 +33,7 @@ main() {
     cd "$GITHUB_WORKSPACE"/repos
 
     # if there is an update, initialize archlinux container
-    if [[ -n "$(<'update_list')" ]]; then
+    if [[ -n "$(< $UPDATE_FILE)" ]]; then
         echo "===============initialize archlinux container==============="
         case "$ARCH" in
             'x86_64')
@@ -121,6 +121,11 @@ check_update() {
         pkgver=$(echo "$new_version" | sed -n 's/^\$(\(.*\))-[0-9]$/\1/p')
         pkgrel=$(echo "$new_version" | sed -n 's/.*-\([0-9]\)$/\1/p')
         new_version=$(eval $pkgver)-$pkgrel
+    fi
+
+    # we may fail to eval due to some reasons, ignore it this time
+    if [[ "$new_version" == '-' ]]; then
+        exit 1
     fi
 
     # FIXME: let us use `makepkg --printsrcinfo > .SRCINFO` to determine
