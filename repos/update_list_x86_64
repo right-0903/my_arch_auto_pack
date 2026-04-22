@@ -1,1 +1,2 @@
-succeed	linux-firmware-gaokun3	2.10.2-2
+succeed	linux-gaokun3	-1
+succeed	tor-browser-bin	'15.0.10'-1
