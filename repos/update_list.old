@@ -1,4 +1,3 @@
-linux-gaokun3 7.0.1-1
-manjaro-zsh-config 
-ttf-meslo-nerd-font-powerlevel10k 
-zsh-theme-powerlevel10k 
+manjaro-zsh-config 0.26-2
+ttf-meslo-nerd-font-powerlevel10k 20230403-2
+zsh-theme-powerlevel10k 1.20.15  ## see P9K_VERSION in internal/p10k.zsh-1
