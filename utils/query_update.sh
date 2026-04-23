@@ -138,7 +138,7 @@ check_update() {
             echo "There is nothing to do for $package"
             ;;
         1)
-            echo "There are updates for $package"
+            echo "There are updates for $package ($new_version)"
             echo "$package $new_version" >> "$UPDATE_FILE"
             echo "$new_version" > "$version_path"
             ;;
