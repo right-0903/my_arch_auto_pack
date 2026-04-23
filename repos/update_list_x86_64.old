@@ -1,2 +1,4 @@
-succeed	linux-gaokun3	-1
-succeed	tor-browser-bin	'15.0.10'-1
+succeed	linux-gaokun3	7.0.1-1
+succeed	manjaro-zsh-config	
+succeed	ttf-meslo-nerd-font-powerlevel10k	
+succeed	zsh-theme-powerlevel10k	
