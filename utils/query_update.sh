@@ -92,9 +92,7 @@ check_update() {
 
     # may not exist, so use path to check its existence first.
     local host_path="$package"/host
-    if [ -f "$host_path" ]; then
-        :
-    else
+    if [[ ! -f "$host_path" ]]; then
         echo "do not provide host site, use the default, aur.archlinux.org"
         ln -s ../default_host $host_path
     fi
