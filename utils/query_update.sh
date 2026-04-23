@@ -54,6 +54,10 @@ main() {
     fi
 }
 
+get_version() {
+    curl --silent "$1" | grep -E '^pkg(ver|rel)=' | sort -r | sed -Ez "s/pkgver=[']?([0-9a-zA-Z.]+)[']?\npkgrel=([0-9]+)/\1-\2/"
+}
+
 check_update() {
     local package="$1"
 
@@ -99,9 +103,9 @@ check_update() {
     if [[ "$host" == 'github' ]]; then
         pkg=$(echo "$url" | sed 's/github/raw.githubusercontent/')/trunk/PKGBUILD
     elif [[ "$host" == 'gitlab' ]]; then
-        # FIXME: it is not always main.
-        pkg="${url}/-/raw/main/PKGBUILD"
-        local pkg2="${url}/-/raw/master/PKGBUILD"
+        # FIXME: it is not always master.
+        pkg="${url}/-/raw/master/PKGBUILD"
+        local pkg2="${url}/-/raw/main/PKGBUILD"
     else # aur.archlinux.org
         pkg="https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$package"
     fi
@@ -111,9 +115,10 @@ check_update() {
 
     # FIXME: handle epoch, ver=epoch:pkgver-pkgrel, but epoch will carry a colon : which causes
     # release process replace it with a dot. , currently, I ignore epoch, one day pacman may miss a update.
-    local new_version=$(curl --silent $pkg | grep -E '^pkg(ver|rel)=' | sort -r | sed -Ez 's/[^=]*=(.*)\n.*=(.*)/\1-\2/')
+
+    local new_version=$(get_version $pkg)
     if [[ -z "$new_version" ]]; then
-        new_version=$(curl --silent $pkg2 | grep -E '^pkg(ver|rel)=' | sort -r | sed -Ez 's/[^=]*=(.*)\n.*=(.*)/\1-\2/')
+        new_version=$(get_version $pkg)
     fi
 
     # if there is a command to get version (i.e. pkgver=$(...))
