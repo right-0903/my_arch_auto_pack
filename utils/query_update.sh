@@ -55,7 +55,8 @@ main() {
 }
 
 get_version() {
-    curl --silent "$1" | grep -E '^pkg(ver|rel)=' | sort -r | sed -Ez "s/pkgver=[']?([0-9a-zA-Z.]+)[']?\npkgrel=([0-9]+)/\1-\2/"
+    source <(curl --silent -L "$1") > /dev/null 2>&1
+    [[ -n "$pkgver" && -n "$pkgrel" ]] && echo "$pkgver-$pkgrel"
 }
 
 check_update() {
@@ -98,7 +99,7 @@ check_update() {
         ln -s ../default_host $host_path
     fi
 
-    local host=$(cat $host_path)
+    local host="$(< $host_path)"
 
     if [[ "$host" == 'github' ]]; then
         pkg=$(echo "$url" | sed 's/github/raw.githubusercontent/')/trunk/PKGBUILD
@@ -117,26 +118,14 @@ check_update() {
     # release process replace it with a dot. , currently, I ignore epoch, one day pacman may miss a update.
 
     local new_version=$(get_version $pkg)
-    if [[ -z "$new_version" ]]; then
-        new_version=$(get_version $pkg)
-    fi
+    [[ -z "$new_version" ]] && new_version=$(get_version $pkg2)
 
-    # if there is a command to get version (i.e. pkgver=$(...))
-    if echo "$new_version" | grep -qE '^\$(.*)-[0-9]+$'; then
-        pkgver=$(echo "$new_version" | sed -En 's/^\$\((.*)\)-[0-9]+$/\1/p')
-        pkgrel=$(echo "$new_version" | sed -En 's/.*-([0-9]+)$/\1/p')
-        new_version=$(eval $pkgver)-$pkgrel
-    fi
-
-    # failed to eval or pkg2 is null too, complain and ignore it this time
+    # pkg2 may be null too, complain and ignore it this time
     if [[ -z "$new_version" ]]; then
         echo "failed to get the version of $package, aborting"
         exit 1
     fi
 
-    # FIXME: let us use `makepkg --printsrcinfo > .SRCINFO` to determine
-    # version things, there is a change to .SRCINFO if a update is coming,
-    # then dynamically fetching version by shell
     compare_version "$version_path" "$new_version"
 
     case $? in
@@ -157,11 +146,8 @@ compare_version() {
     local version_path=$1
     local new_version=$2
 
-    if [[ -f "$version_path" ]]; then
-        local version=$(cat "$version_path")
-    else
-        local version=""
-    fi
+    local version=""
+    [[ -f "$version_path" ]] && version="$(< $version_path)"
 
     # we check if the new_version is equal to version, rather than bigger or less,
     # if version is null, then build it, and append new_version to it
