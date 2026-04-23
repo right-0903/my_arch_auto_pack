@@ -112,19 +112,20 @@ check_update() {
     # FIXME: handle epoch, ver=epoch:pkgver-pkgrel, but epoch will carry a colon : which causes
     # release process replace it with a dot. , currently, I ignore epoch, one day pacman may miss a update.
     local new_version=$(curl --silent $pkg | grep -E '^pkg(ver|rel)=' | sort -r | sed -Ez 's/[^=]*=(.*)\n.*=(.*)/\1-\2/')
-    if [[ "$new_version" == '-' ]]; then
+    if [[ -z "$new_version" ]]; then
         new_version=$(curl --silent $pkg2 | grep -E '^pkg(ver|rel)=' | sort -r | sed -Ez 's/[^=]*=(.*)\n.*=(.*)/\1-\2/')
     fi
 
     # if there is a command to get version (i.e. pkgver=$(...))
-    if echo "$new_version" | grep -E '^\$(.*)-[0-9]+$'; then
+    if echo "$new_version" | grep -qE '^\$(.*)-[0-9]+$'; then
         pkgver=$(echo "$new_version" | sed -En 's/^\$\((.*)\)-[0-9]+$/\1/p')
         pkgrel=$(echo "$new_version" | sed -En 's/.*-([0-9]+)$/\1/p')
         new_version=$(eval $pkgver)-$pkgrel
     fi
 
-    # we may fail to eval due to some reasons, ignore it this time
-    if [[ "$new_version" == '-' ]]; then
+    # failed to eval or pkg2 is null too, complain and ignore it this time
+    if [[ -z "$new_version" ]]; then
+        echo "failed to get the version of $package, aborting"
         exit 1
     fi
 
