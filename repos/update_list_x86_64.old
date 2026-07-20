@@ -1,6 +1,1 @@
-succeed	docker-desktop	4.81.0-1
-succeed	kc57-drivers-dkms	4.22.3-1
-succeed	linux-gaokun3	7.1.3-1
-succeed	tor-browser-bin	15.0.17-1
-succeed	vscodium-bin	1.126.04524-1
-succeed	wemeet-bin	3.26.10.401-2
+succeed	linux-gaokun3	7.1.4-1
