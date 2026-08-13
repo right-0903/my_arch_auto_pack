@@ -1,4 +1,2 @@
-succeed	docker-desktop	4.86.0-1
-failed	spotify-adblock	1.1.1-1
-succeed	spotify	1.2.95.453-1
-succeed	tuxedo-control-center-bin	3.0.9-1
+succeed	spotify-adblock	1.1.1-1
+succeed	teams-for-linux-bin	2.14.1-3
