@@ -120,8 +120,8 @@ check_update() {
 
     # pkg2 may be null too, complain and ignore it this time
     if [[ -z "$new_version" ]]; then
-        echo "failed to get the version of $package, aborting"
-        exit 1
+        echo "failed to get the version of $package, skipping"
+        return 1
     fi
 
     compare_version "$version_path" "$new_version"
