@@ -5,6 +5,7 @@
 # Usage: ./make_arch_chroot_aarch64.sh
 # =============================================================================
 
+# TODO: evaluate set -eo pipefail
 
 # check if the execution user is root
 if [ "$(id -u)" -eq 0 ]; then
@@ -13,8 +14,9 @@ if [ "$(id -u)" -eq 0 ]; then
 fi
 
 # update the github runner and install the dependencies we need
+# TODO: determine the package name by command name, commands are more stable than packages.
 sudo apt-get update
-sudo apt-get install -y zstd curl libarchive-tools qemu-user-static parted arch-install-scripts
+sudo apt-get install -y zstd curl libarchive-tools qemu-user parted arch-install-scripts
 
 # handle binfmt_misc, https://access.redhat.com/solutions/1985633
 if grep -q 'binfmt_misc' /proc/mounts; then
@@ -29,7 +31,7 @@ sudo sh -c 'echo -1 > /proc/sys/fs/binfmt_misc/qemu-aarch64'
 # FP -> FPC: add flag C, without it, we would get
 # 'sudo: effective uid is not 0, is /usr/bin/sudo on a file system with the
 # 'nosuid' option set or an NFS file system without root privileges?'
-sudo sh -c "echo ':qemu-aarch64:M::\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\xb7\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-aarch64-static:FPC' > /proc/sys/fs/binfmt_misc/register"
+sudo sh -c "echo ':qemu-aarch64:M::\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\xb7\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-aarch64:FPC' > /proc/sys/fs/binfmt_misc/register"
 
 # get into builddir, but root may do not know $GITHUB_WORKSPACE
 # I use s series of sudo here rather than set absolute path for $GITHUB_WORKSPACE
@@ -44,7 +46,8 @@ MIRROR_URL='http://fl.us.mirror.archlinuxarm.org'
 curl "$MIRROR_URL/os/ArchLinuxARM-aarch64-latest.tar.gz" -o ArchLinuxARM-aarch64-latest.tar.gz
 bsdtar -xpf ArchLinuxARM-aarch64-latest.tar.gz -C ${CHROOT_DIR}
 
-cp /usr/bin/qemu-aarch64-static  ${CHROOT_DIR}/usr/bin/qemu-aarch64-static
+# should be safe to skip with the binfmt_misc flag F
+# cp /usr/bin/qemu-aarch64 ${CHROOT_DIR}/usr/bin/qemu-aarch64
 
 # enable ParallelDownloads
 sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 4/' ${CHROOT_DIR}/etc/pacman.conf
