@@ -6,6 +6,7 @@
 # =============================================================================
 
 # TODO: evaluate set -eo pipefail
+set -eo pipefail
 
 # check if the execution user is root
 if [ "$(id -u)" -eq 0 ]; then
@@ -91,7 +92,7 @@ sudo install -m 444 "$GITHUB_WORKSPACE/keys/CA909D46CD1890BE.asc" "${CHROOT_DIR}
 sudo arch-chroot ${CHROOT_DIR} sh -c 'pacman-key --add /root/CA909D46CD1890BE.asc && pacman-key --lsign-key CA909D46CD1890BE'
 
 # speed up
-sudo arch-chroot ${CHROOT_DIR} sh -c 'pacman -Rns linux-aarch64 --noconfirm'
+sudo arch-chroot ${CHROOT_DIR} sh -c 'pacman -Rns linux-aarch64 linux-firmware --noconfirm'
 
 # update and install
 sudo arch-chroot ${CHROOT_DIR} sh -c 'pacman -Syu base-devel git curl openssh --noconfirm'

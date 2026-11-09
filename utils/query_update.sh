@@ -7,6 +7,8 @@
 # Usage: ./query_update.sh
 # =============================================================================
 
+set -eo pipefail
+
 ARCH="$1"
 UPDATE_FILE="update_list"
 
@@ -19,9 +21,9 @@ query_update() {
     # append update entries to file
     for package in */ ; do
         # in the form package1 package2 ... rather than package1/ package2/ ...
-        check_update "${package%/}"
+        check_update "${package%/}" &
     done
-
+    wait
     mv "${UPDATE_FILE}_$ARCH" "${UPDATE_FILE}_$ARCH.old" || true
 }
 

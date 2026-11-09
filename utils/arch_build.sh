@@ -5,6 +5,7 @@
 # Usage: ./arch_build.sh
 # =============================================================================
 
+set -eo pipefail
 
 PROD_DIR='/home/nuvole/prod'
 ARCH="$1" # only used by aarch64

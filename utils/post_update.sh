@@ -6,6 +6,8 @@
 # Usage: ./post_update.sh
 # =============================================================================
 
+set -eo pipefail
+
 ARCH="$1"
 VER="version_$ARCH"
 

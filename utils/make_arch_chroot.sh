@@ -5,6 +5,7 @@
 # Usage: ./make_arch_chroot.sh
 # =============================================================================
 
+set -eo pipefail
 
 # check if the execution user is root
 if [ "$(id -u)" -eq 0 ]; then
