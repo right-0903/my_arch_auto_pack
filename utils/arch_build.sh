@@ -12,9 +12,9 @@ ARCH="$1" # only used by aarch64
 
 main() {
 
-    # import gpg
+    # import gpg if any
     cd /home/nuvole/repos
-    gpg --import ./*/keys/pgp/*
+    gpg --import ./*/keys/pgp/* || :
 
     # make use of cores
     export MAKEFLAGS=-j$(nproc)
@@ -38,8 +38,8 @@ main() {
             echo "remove epoch for ${package%/}"
         fi
         sed -i 's/^\s*epoch=[0-9]\+//' "$package/PKGBUILD"
-        build $package
-        update_repo ${package%/}
+        build $package || :
+        update_repo ${package%/} || :
         echo "${package%/} done!"
     done
 
