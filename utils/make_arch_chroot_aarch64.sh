@@ -5,9 +5,6 @@
 # Usage: ./make_arch_chroot_aarch64.sh
 # =============================================================================
 
-# TODO: evaluate set -eo pipefail
-set -eo pipefail
-
 # check if the execution user is root
 if [ "$(id -u)" -eq 0 ]; then
     echo "error: please do not run this script as root."

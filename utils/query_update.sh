@@ -7,8 +7,6 @@
 # Usage: ./query_update.sh
 # =============================================================================
 
-set -eo pipefail
-
 ARCH="$1"
 UPDATE_FILE="update_list"
 
