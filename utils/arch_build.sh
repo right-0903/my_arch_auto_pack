@@ -62,10 +62,10 @@ main() {
         curl -L -o $FILES_DB "$URL/$FILES_DB"
     fi
 
-    # TODO: if there is a repo update broken, the non tar.gz suffix should be safe, so use it
-    # a repo update broken may cause a invalid tar.gz file, check it then replace it
-    # curl -L --output $PACKAGE_DB "(echo $URL/$PACKAGE_DB | sed 's/\.tar\.gz$//')"
-    # or we can check if repo is valid before upload it
+    # TODO: rollback when the db is broken
+    local timestamp=$(date '+%Y-%m-%d')
+    cp $PACKAGE_DB $PACKAGE_DB-$timestamp
+    cp $FILE_DB $file_DB-$timestamp
 
     # don't use --new, it only adds packages that are not already in the databases, not --sign for now
     # This causes package info unchanged, new package may not be same as the old, like size
