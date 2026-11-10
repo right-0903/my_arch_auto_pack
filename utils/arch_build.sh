@@ -65,7 +65,7 @@ main() {
     # TODO: rollback when the db is broken
     local timestamp=$(date '+%Y-%m-%d')
     cp $PACKAGE_DB $PACKAGE_DB-$timestamp
-    cp $FILE_DB $file_DB-$timestamp
+    cp $FILE_DB $FILE_DB-$timestamp
 
     # don't use --new, it only adds packages that are not already in the databases, not --sign for now
     # This causes package info unchanged, new package may not be same as the old, like size
