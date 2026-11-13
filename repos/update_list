@@ -1,9 +1,5 @@
-wemeet-bin 3.26.10.401-5
-timeshift-autosnap 0.10.0-1
-libpamac-aur 11.7.4-2
-pamac-aur 11.7.5-2
-vscodium-bin 1.143.17232-1
+zsh-theme-powerlevel10k 1.20.18-1
+ttf-meslo-nerd-font-powerlevel10k 20230403-2
+manjaro-zsh-config 0.26-4
 cantata-qt6 3.3.1-1
 btrfs-assistant 2.2-1
-fcitx5-pinyin-custom-pinyin-dictionary 20260101-1
-linux-firmware-gaokun3 2.10.2-2
